@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Help | Empower &amp; Elevate</title>
+  <meta name="description" content="AI tools curated for executive assistants supporting EOS Implementers — organized by how you actually use them." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:          #FAF7F2;
+      --ivory-dark:     #F0EBE1;
+      --tan:            #D4C5B0;
+      --charcoal:       #2C2C2C;
+      --charcoal-mid:   #555555;
+      --charcoal-light: #888888;
+      --teal:           #1A7A7A;
+      --teal-light:     #228B8B;
+      --teal-pale:      #E0F0F0;
+      --teal-dark:      #0F6E56;
+      --white:          #FFFFFF;
+      --font-display:   'Playfair Display', Georgia, serif;
+      --font-body:      'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 17px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── JUMP NAV ── */
+    .jump-nav { background: var(--white); border-bottom: 1px solid var(--tan); padding: 0 2.5rem; overflow-x: auto; }
+    .jump-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0; }
+    .jump-nav a { display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: var(--charcoal-light); padding: 1rem 1.25rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
+    .jump-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+
+    /* ── CATEGORY ── */
+    .category { margin-bottom: 4rem; }
+    .category:last-child { margin-bottom: 0; }
+
+    .category-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.75rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--tan);
+    }
+    .category-icon { width: 42px; height: 42px; background: var(--teal-pale); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .category-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .category-header h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--charcoal); }
+
+    /* ── TOOL CARDS ── */
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+
+    .tool-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tool-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card); }
+
+    .tool-name { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 0.35rem; }
+    .tool-desc { font-size: 13px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.65; margin-bottom: 1rem; }
+    .tool-link {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--teal); background: var(--teal-pale); padding: 4px 12px;
+      border-radius: var(--radius-sm); transition: background 0.2s, color 0.2s;
+    }
+    .tool-link:hover { background: var(--teal); color: var(--ivory); }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      background: var(--teal-pale);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 3rem;
+    }
+    .callout p { font-size: 14px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.8; }
+    .callout strong { font-weight: 500; color: var(--teal-dark); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="ea-tools.html">EA Tools</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="ai-help.html" class="active">AI Help</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Resource Vault</p>
+      <h1>AI <em>Help</em></h1>
+      <p class="page-header-sub">AI tools that actually move the needle for EAs — organized by the kind of work you're trying to get done faster and better.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- JUMP NAV -->
+  <nav class="jump-nav" aria-label="Jump to category">
+    <div class="jump-nav-inner">
+      <a href="#productivity">Productivity</a>
+      <a href="#writing">Writing</a>
+      <a href="#creative">Creative</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#business">Business</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="callout">
+      <p><strong>New to AI tools?</strong> Start with one tool from the Writing or Meetings category — these tend to show the fastest, most tangible results for EAs. Once you're comfortable, layer in productivity and creative tools from there.</p>
+    </div>
+
+    <!-- GENERAL PRODUCTIVITY -->
+    <section class="category" id="productivity">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2>General Productivity &amp; Workflow</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Notion AI</div>
+          <div class="tool-desc">Smart workspace automation for notes, content drafting, and meeting summaries. Built directly into Notion so no extra switching required.</div>
+          <a href="https://www.notion.so/product/ai" target="_blank" rel="noopener" class="tool-link">Visit Notion AI &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">ClickUp AI</div>
+          <div class="tool-desc">Project management with built-in task automation — ideal for remote teams and event planning. Writes summaries, generates subtasks, and drafts updates.</div>
+          <a href="https://clickup.com/ai" target="_blank" rel="noopener" class="tool-link">Visit ClickUp AI &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Zapier</div>
+          <div class="tool-desc">Connects your apps and automates repetitive workflows without code. If you do the same thing more than three times, Zapier can probably handle it.</div>
+          <a href="https://zapier.com/" target="_blank" rel="noopener" class="tool-link">Visit Zapier &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Reclaim AI</div>
+          <div class="tool-desc">Optimizes calendars automatically for meetings, focus time, and task prioritization. Syncs with Google Calendar and learns your preferences over time.</div>
+          <a href="https://reclaim.ai/" target="_blank" rel="noopener" class="tool-link">Visit Reclaim AI &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WRITING, MESSAGING & COMMUNICATION -->
+    <section class="category" id="writing">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h2>Writing, Messaging &amp; Communication</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">ChatGPT</div>
+          <div class="tool-desc">Versatile writing assistant for emails, brainstorming, and workshop content. The most capable general-purpose AI writing tool available.</div>
+          <a href="https://chat.openai.com/" target="_blank" rel="noopener" class="tool-link">Visit ChatGPT &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">GrammarlyGO</div>
+          <div class="tool-desc">Enhances tone, clarity, and grammar in written communication. Goes beyond spell-check to rewrite and improve entire passages.</div>
+          <a href="https://www.grammarly.com/grammarlygo" target="_blank" rel="noopener" class="tool-link">Visit GrammarlyGO &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">HyperWrite</div>
+          <div class="tool-desc">Personalized writing assistant that learns and mimics your voice over time. Great for maintaining a consistent tone across all executive communications.</div>
+          <a href="https://www.hyperwriteai.com/" target="_blank" rel="noopener" class="tool-link">Visit HyperWrite &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Tome AI</div>
+          <div class="tool-desc">Creates elegant, story-driven presentations with minimal effort. Input your talking points and Tome builds a polished narrative deck.</div>
+          <a href="https://tome.app/" target="_blank" rel="noopener" class="tool-link">Visit Tome AI &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Microsoft Copilot</div>
+          <div class="tool-desc">Helps foster engagement, draft communications, and moderate events within Microsoft 365. Deeply integrated with Outlook, Teams, and Word.</div>
+          <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener" class="tool-link">Visit Copilot &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CREATIVE & VISUAL -->
+    <section class="category" id="creative">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+        </div>
+        <h2>Creative &amp; Visual Tools</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Canva AI</div>
+          <div class="tool-desc">Design templates and image generation for invites, social posts, and branding. Magic Studio features make professional design accessible to anyone.</div>
+          <a href="https://www.canva.com/ai-image-generator/" target="_blank" rel="noopener" class="tool-link">Visit Canva AI &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Adobe Firefly</div>
+          <div class="tool-desc">Text-to-image and video generation with full Adobe Creative Cloud integration. Built for commercial use with licensing built in.</div>
+          <a href="https://firefly.adobe.com/" target="_blank" rel="noopener" class="tool-link">Visit Adobe Firefly &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Runway ML</div>
+          <div class="tool-desc">AI-powered video editing and creative effects. Ideal for producing polished workshop recap videos or promotional content.</div>
+          <a href="https://runwayml.com/" target="_blank" rel="noopener" class="tool-link">Visit Runway ML &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">PicLumen</div>
+          <div class="tool-desc">Generates stunning visuals from text prompts. Great for creating custom imagery for presentations, newsletters, and event materials.</div>
+          <a href="https://piclumen.com/" target="_blank" rel="noopener" class="tool-link">Visit PicLumen &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MEETINGS & COLLABORATION -->
+    <section class="category" id="meetings">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h2>Meetings &amp; Collaboration</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Otter.ai</div>
+          <div class="tool-desc">Transcribes meetings and generates summaries automatically. Integrates with Zoom, Teams, and Google Meet — great for capturing workshop notes without lifting a pen.</div>
+          <a href="https://otter.ai/" target="_blank" rel="noopener" class="tool-link">Visit Otter.ai &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Fireflies.ai</div>
+          <div class="tool-desc">Records and analyzes voice conversations with searchable transcripts. Pulls action items and key moments automatically so nothing falls through the cracks.</div>
+          <a href="https://fireflies.ai/" target="_blank" rel="noopener" class="tool-link">Visit Fireflies.ai &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Descript</div>
+          <div class="tool-desc">Edit audio and video by editing the transcript — as easy as editing a Word doc. Perfect for producing workshop recordings and polished recaps.</div>
+          <a href="https://www.descript.com/" target="_blank" rel="noopener" class="tool-link">Visit Descript &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BUSINESS & STRATEGIC GROWTH -->
+    <section class="category" id="business">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h2>Business &amp; Strategic Growth</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Perplexity Pro</div>
+          <div class="tool-desc">AI-powered research engine with cited sources and reliable summaries. Better than a search engine when you need fast, trustworthy answers on complex topics.</div>
+          <a href="https://www.perplexity.ai/" target="_blank" rel="noopener" class="tool-link">Visit Perplexity &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Jasper AI</div>
+          <div class="tool-desc">Marketing and content creation with SEO optimization and brand voice control. Ideal for producing consistent communications across multiple channels.</div>
+          <a href="https://www.jasper.ai/" target="_blank" rel="noopener" class="tool-link">Visit Jasper AI &rarr;</a>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Salesforce Einstein</div>
+          <div class="tool-desc">CRM insights and automation for personalized outreach and engagement. Surfaces the right information at the right time to support implementer relationships.</div>
+          <a href="https://www.salesforce.com/products/einstein/overview/" target="_blank" rel="noopener" class="tool-link">Visit Einstein &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
