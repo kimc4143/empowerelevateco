@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EA Tools | Empower &amp; Elevate</title>
+  <meta name="description" content="Curated tools for executive assistants supporting EOS Implementers — organized by workflow category." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:        #FAF7F2;
+      --ivory-dark:   #F0EBE1;
+      --tan:          #D4C5B0;
+      --charcoal:     #2C2C2C;
+      --charcoal-mid: #555555;
+      --charcoal-light: #888888;
+      --teal:         #1A7A7A;
+      --teal-light:   #228B8B;
+      --teal-pale:    #E0F0F0;
+      --teal-dark:    #0F6E56;
+      --white:        #FFFFFF;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 17px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--teal);
+      padding: 4rem 2.5rem 3.5rem;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── CATEGORY JUMP NAV ── */
+    .jump-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      overflow-x: auto;
+    }
+    .jump-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+    }
+    .jump-nav a {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--charcoal-light);
+      padding: 1rem 1.25rem;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .jump-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* ── MAIN CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+
+    /* ── CATEGORY SECTION ── */
+    .category { margin-bottom: 4rem; }
+    .category:last-child { margin-bottom: 0; }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .category-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .category-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+
+    .category-header h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    /* ── TOOL GRID ── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .tool-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .tool-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card); }
+
+    .tool-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.35rem;
+    }
+
+    .tool-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .tool-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tool-link {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+    .tool-link:hover { background: var(--teal); color: var(--ivory); }
+
+    /* simple list style for categories with fewer tools */
+    .tool-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .tool-list-item {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      transition: border-color 0.2s;
+    }
+    .tool-list-item:hover { border-color: var(--teal); }
+    .tool-list-name { font-size: 14px; font-weight: 400; color: var(--charcoal); }
+    .tool-list-desc { font-size: 13px; font-weight: 300; color: var(--charcoal-mid); flex: 1; }
+    .tool-list-link { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--teal); white-space: nowrap; }
+    .tool-list-link:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem; }
+      .tool-grid { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="ea-tools.html" class="active">EA Tools</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="ai-help.html">AI Help</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Resource Vault</p>
+      <h1>EA <em>Tools</em></h1>
+      <p class="page-header-sub">Every tool here has been curated for the way EAs who support EOS Implementers actually work — organized by the workflows you live in every day.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- JUMP NAV -->
+  <nav class="jump-nav" aria-label="Jump to category">
+    <div class="jump-nav-inner">
+      <a href="#calendar">Calendar</a>
+      <a href="#email">Email</a>
+      <a href="#documents">Documents</a>
+      <a href="#tasks">Tasks</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#time">Time Tracking</a>
+      <a href="#gifting">Gifting</a>
+      <a href="#security">Security</a>
+      <a href="#reporting">Reporting</a>
+      <a href="#presentations">Presentations</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- CALENDAR & SCHEDULING -->
+    <section class="category" id="calendar">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h2>Calendar &amp; Scheduling</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Calendly</div>
+          <div class="tool-desc">Simplifies scheduling meetings without the back-and-forth emails. Ideal for managing an implementer's availability with clients.</div>
+          <div class="tool-links">
+            <a href="https://calendly.com/" target="_blank" rel="noopener" class="tool-link">Official Site</a>
+            <a href="https://calendly.com/solutions/individuals" target="_blank" rel="noopener" class="tool-link">For Individuals</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Clockwise</div>
+          <div class="tool-desc">Smart calendar assistant that optimizes time blocks and protects focus time automatically. AI-powered and integrates with Outlook.</div>
+          <div class="tool-links">
+            <a href="https://www.getclockwise.com/" target="_blank" rel="noopener" class="tool-link">Homepage</a>
+            <a href="https://appsource.microsoft.com/en-us/product/web-apps/clockwiseinc10242023191625.clockwise" target="_blank" rel="noopener" class="tool-link">Outlook Integration</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Google Calendar &amp; Outlook</div>
+          <div class="tool-desc">Tips, shortcuts, and best practices for managing executive calendars at scale. Go beyond the basics with these curated guides.</div>
+          <div class="tool-links">
+            <a href="https://www.pcmag.com/how-to/google-calendar-tricks-youre-probably-not-using" target="_blank" rel="noopener" class="tool-link">12 GCal Tricks</a>
+            <a href="https://www.getmagical.com/blog/google-calendar-shortcuts-tips-tricks" target="_blank" rel="noopener" class="tool-link">20+ Shortcuts</a>
+            <a href="https://support.google.com/calendar/answer/37034" target="_blank" rel="noopener" class="tool-link">Google Help</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">YouCanBookMe</div>
+          <div class="tool-desc">Eliminates the back and forth of booking meetings with customizable booking pages. Free tier available for individual use.</div>
+          <div class="tool-links">
+            <a href="https://youcanbook.me/" target="_blank" rel="noopener" class="tool-link">Homepage</a>
+            <a href="https://youcanbook.me/scheduling-for-individuals" target="_blank" rel="noopener" class="tool-link">For Individuals</a>
+            <a href="https://www.youtube.com/@YouCanBookMe.Scheduling" target="_blank" rel="noopener" class="tool-link">Tutorials</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EMAIL & COMMUNICATION -->
+    <section class="category" id="email">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h2>Email &amp; Communication</h2>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card">
+          <div class="tool-name">Superhuman</div>
+          <div class="tool-desc">Fast, keyboard-driven email client built for power users. Dramatically reduces time spent in inbox with smart workflows and shortcuts.</div>
+          <div class="tool-links">
+            <a href="https://superhuman.com/" target="_blank" rel="noopener" class="tool-link">Website</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Boomerang</div>
+          <div class="tool-desc">Schedule emails, set follow-up reminders, and track responses. Available for both Gmail and Outlook.</div>
+          <div class="tool-links">
+            <a href="https://www.boomeranggmail.com/" target="_blank" rel="noopener" class="tool-link">For Gmail</a>
+            <a href="https://www.boomerangoutlook.com/" target="_blank" rel="noopener" class="tool-link">For Outlook</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Loom</div>
+          <div class="tool-desc">Record quick video messages for async communication. Eliminates meetings for updates that don't require live discussion.</div>
+          <div class="tool-links">
+            <a href="https://www.loom.com/ai" target="_blank" rel="noopener" class="tool-link">Official Site</a>
+            <a href="https://www.youtube.com/watch?v=bgOu-fN0QT4" target="_blank" rel="noopener" class="tool-link">Intro Video</a>
+          </div>
+        </div>
+
+        <div class="tool-card">
+          <div class="tool-name">Grammarly</div>
+          <div class="tool-desc">AI-powered writing assistant that catches errors and improves tone. Available as a browser extension, desktop app, and Edge add-on.</div>
+          <div class="tool-links">
+            <a href="https://www.grammarly.com/" target="_blank" rel="noopener" class="tool-link">Homepage</a>
+            <a href="https://www.grammarly.com/grammar-check" target="_blank" rel="noopener" class="tool-link">Grammar Checker</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DOCUMENT & FILE MANAGEMENT -->
+    <section class="category" id="documents">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h2>Document &amp; File Management</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Google Workspace / Microsoft 365</span>
+          <span class="tool-list-desc">Collaboration tools for docs, sheets, and presentations. The backbone of most EA workflows.</span>
+          <a href="https://workspace.google.com/" target="_blank" rel="noopener" class="tool-list-link">Google Workspace &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Dropbox / OneDrive</span>
+          <span class="tool-list-desc">Secure cloud storage and file sharing for teams and executives.</span>
+          <a href="https://www.dropbox.com/" target="_blank" rel="noopener" class="tool-list-link">Dropbox &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Notion</span>
+          <span class="tool-list-desc">All-in-one workspace for notes, docs, databases, and project tracking. Highly customizable.</span>
+          <a href="https://www.notion.so/" target="_blank" rel="noopener" class="tool-list-link">Notion &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK & PROJECT MANAGEMENT -->
+    <section class="category" id="tasks">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h2>Task &amp; Project Management</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Asana</span>
+          <span class="tool-list-desc">Great for managing team projects and personal tasks with timelines and automation.</span>
+          <a href="https://asana.com/" target="_blank" rel="noopener" class="tool-list-link">Asana &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Trello</span>
+          <span class="tool-list-desc">Visual boards for organizing workflows and priorities. Simple and intuitive.</span>
+          <a href="https://trello.com/" target="_blank" rel="noopener" class="tool-list-link">Trello &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">ClickUp</span>
+          <span class="tool-list-desc">Highly customizable task and project management platform that replaces multiple tools.</span>
+          <a href="https://clickup.com/" target="_blank" rel="noopener" class="tool-list-link">ClickUp &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Todoist</span>
+          <span class="tool-list-desc">Simple and elegant personal task manager. Great for daily to-do workflows.</span>
+          <a href="https://todoist.com/" target="_blank" rel="noopener" class="tool-list-link">Todoist &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Monday.com</span>
+          <span class="tool-list-desc">Visual, flexible platform for managing tasks, timelines, and team collaboration with custom workflows.</span>
+          <a href="https://monday.com/" target="_blank" rel="noopener" class="tool-list-link">Monday.com &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEETING & EVENT PLANNING -->
+    <section class="category" id="meetings">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h2>Meeting &amp; Event Planning</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Doodle</span>
+          <span class="tool-list-desc">Easy group scheduling and availability polling — great for coordinating across multiple calendars.</span>
+          <a href="https://doodle.com/" target="_blank" rel="noopener" class="tool-list-link">Doodle &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Zoom / Microsoft Teams</span>
+          <span class="tool-list-desc">Tips for hosting, moderating, and managing breakout rooms for implementer sessions.</span>
+          <a href="https://zoom.us/" target="_blank" rel="noopener" class="tool-list-link">Zoom &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">TripIt</span>
+          <span class="tool-list-desc">Travel organizer for managing itineraries and confirmations. Automatically parses travel emails.</span>
+          <a href="https://www.tripit.com/" target="_blank" rel="noopener" class="tool-list-link">TripIt &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Social Tables</span>
+          <span class="tool-list-desc">Event diagramming and seating chart tool for in-person events and retreats.</span>
+          <a href="https://www.socialtables.com/" target="_blank" rel="noopener" class="tool-list-link">Social Tables &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Offsite</span>
+          <span class="tool-list-desc">Takes the hassle out of planning team offsites — handles venue, agenda, and logistics.</span>
+          <a href="https://www.offsite.com/" target="_blank" rel="noopener" class="tool-list-link">Offsite &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIME TRACKING & INVOICING -->
+    <section class="category" id="time">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h2>Time Tracking &amp; Invoicing</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Harvest</span>
+          <span class="tool-list-desc">Track time, manage budgets, and send invoices. Great for client-facing work support.</span>
+          <a href="https://www.getharvest.com/" target="_blank" rel="noopener" class="tool-list-link">Harvest &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Toggl Track</span>
+          <span class="tool-list-desc">Simple time tracking with powerful reporting features. One-click start/stop.</span>
+          <a href="https://toggl.com/track/" target="_blank" rel="noopener" class="tool-list-link">Toggl &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Clockify</span>
+          <span class="tool-list-desc">Free time tracker with team collaboration and project budgeting. Generous free tier.</span>
+          <a href="https://clockify.me/" target="_blank" rel="noopener" class="tool-list-link">Clockify &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">FreshBooks</span>
+          <span class="tool-list-desc">Accounting software with built-in time tracking and invoicing for small teams.</span>
+          <a href="https://www.freshbooks.com/" target="_blank" rel="noopener" class="tool-list-link">FreshBooks &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIFTING & RECOGNITION -->
+    <section class="category" id="gifting">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h2>Gifting &amp; Recognition</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Loop &amp; Tie</span>
+          <span class="tool-list-desc">Curated gifting platform that lets recipients choose their own gift. Elegant and personal.</span>
+          <a href="https://www.loopandtie.com/" target="_blank" rel="noopener" class="tool-list-link">Loop &amp; Tie &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Snappy</span>
+          <span class="tool-list-desc">Personalized corporate gifting with tracking and automation built in.</span>
+          <a href="https://www.snappy.com/" target="_blank" rel="noopener" class="tool-list-link">Snappy &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Postal.io</span>
+          <span class="tool-list-desc">Send gifts, swag, and handwritten notes with ease. Great for client appreciation.</span>
+          <a href="https://postal.io/" target="_blank" rel="noopener" class="tool-list-link">Postal.io &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Olive &amp; Cocoa</span>
+          <span class="tool-list-desc">Makes giving and receiving gifts a beautiful experience. Curated, premium presentation.</span>
+          <a href="https://www.oliveandcocoa.com/" target="_blank" rel="noopener" class="tool-list-link">Olive &amp; Cocoa &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECURITY & ACCESS -->
+    <section class="category" id="security">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h2>Security &amp; Access</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">LastPass / 1Password</span>
+          <span class="tool-list-desc">Password managers for secure credential sharing with executives and teams.</span>
+          <a href="https://1password.com/" target="_blank" rel="noopener" class="tool-list-link">1Password &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Dashlane</span>
+          <span class="tool-list-desc">Another strong option for managing passwords and digital security across devices.</span>
+          <a href="https://www.dashlane.com/" target="_blank" rel="noopener" class="tool-list-link">Dashlane &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPORTING & ANALYTICS -->
+    <section class="category" id="reporting">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h2>Reporting &amp; Analytics</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Google Sheets / Excel</span>
+          <span class="tool-list-desc">Templates for budget tracking, RSVP lists, and reporting. The EA's most versatile tool.</span>
+          <a href="https://sheets.google.com/" target="_blank" rel="noopener" class="tool-list-link">Google Sheets &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Canva</span>
+          <span class="tool-list-desc">For creating polished reports, presentations, and visuals with no design experience needed.</span>
+          <a href="https://www.canva.com/" target="_blank" rel="noopener" class="tool-list-link">Canva &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENTATIONS & CONTENT CREATION -->
+    <section class="category" id="presentations">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h2>Presentation &amp; Content Creation</h2>
+      </div>
+      <div class="tool-list">
+        <div class="tool-list-item">
+          <span class="tool-list-name">Canva</span>
+          <span class="tool-list-desc">For visual design and branded content. Drag-and-drop with thousands of templates.</span>
+          <a href="https://www.canva.com/" target="_blank" rel="noopener" class="tool-list-link">Canva &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Beautiful.ai</span>
+          <span class="tool-list-desc">AI-powered slide design with smart templates that auto-adjust as you add content.</span>
+          <a href="https://www.beautiful.ai/" target="_blank" rel="noopener" class="tool-list-link">Beautiful.ai &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Pitch</span>
+          <span class="tool-list-desc">Collaborative presentation software with modern aesthetics and real-time editing.</span>
+          <a href="https://pitch.com/" target="_blank" rel="noopener" class="tool-list-link">Pitch &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Visme</span>
+          <span class="tool-list-desc">For infographics, reports, and interactive presentations beyond standard slides.</span>
+          <a href="https://www.visme.co/" target="_blank" rel="noopener" class="tool-list-link">Visme &rarr;</a>
+        </div>
+        <div class="tool-list-item">
+          <span class="tool-list-name">Gamma</span>
+          <span class="tool-list-desc">AI-generated presentations — input a topic or outline and Gamma builds a complete deck in minutes.</span>
+          <a href="https://gamma.app/" target="_blank" rel="noopener" class="tool-list-link">Gamma &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
