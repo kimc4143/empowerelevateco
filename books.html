@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books | Empower &amp; Elevate</title>
+  <meta name="description" content="Reading recommendations for executive assistants supporting EOS Implementers — curated by Kim Craig." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:          #FAF7F2;
+      --ivory-dark:     #F0EBE1;
+      --tan:            #D4C5B0;
+      --charcoal:       #2C2C2C;
+      --charcoal-mid:   #555555;
+      --charcoal-light: #888888;
+      --teal:           #1A7A7A;
+      --teal-light:     #228B8B;
+      --teal-pale:      #E0F0F0;
+      --teal-dark:      #0F6E56;
+      --white:          #FFFFFF;
+      --font-display:   'Playfair Display', Georgia, serif;
+      --font-body:      'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ivory); border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 17px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── JUMP NAV ── */
+    .jump-nav { background: var(--white); border-bottom: 1px solid var(--tan); padding: 0 2.5rem; overflow-x: auto; }
+    .jump-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; }
+    .jump-nav a { display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: var(--charcoal-light); padding: 1rem 1.25rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
+    .jump-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+
+    /* ── SECTION ── */
+    .book-section { margin-bottom: 4rem; }
+    .book-section:last-child { margin-bottom: 0; }
+
+    .section-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.75rem; padding-bottom: 1rem;
+      border-bottom: 1px solid var(--tan);
+    }
+    .section-icon { width: 42px; height: 42px; background: var(--teal-pale); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .section-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .section-header h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--charcoal); }
+    .section-header p { font-size: 13px; font-weight: 300; color: var(--charcoal-light); margin-top: 0.2rem; }
+
+    /* ── BOOK GRID ── */
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .book-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .book-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card); }
+
+    /* Book spine decoration */
+    .book-spine {
+      flex-shrink: 0;
+      width: 36px;
+      height: 52px;
+      border-radius: 2px 4px 4px 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--white);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.05em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 4px 0;
+    }
+
+    .spine-1  { background: var(--teal); }
+    .spine-2  { background: #2C5F5F; }
+    .spine-3  { background: #3D7A6B; }
+    .spine-4  { background: #1F6B6B; }
+    .spine-5  { background: #0F5E5E; }
+    .spine-6  { background: #4A8A7A; }
+    .spine-7  { background: #2A6A6A; }
+    .spine-8  { background: #155F5F; }
+
+    .book-info { flex: 1; min-width: 0; }
+
+    .book-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+
+    .book-author {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.6rem;
+    }
+
+    .book-desc {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.65;
+      margin-bottom: 0.85rem;
+    }
+
+    .book-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+    .book-link:hover { background: var(--teal); color: var(--ivory); }
+    .book-link svg { width: 11px; height: 11px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ── KIM'S NOTE ── */
+    .kims-note {
+      background: var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      margin-top: 4rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .kims-note-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .kims-note-icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .kims-note h3 { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; color: var(--ivory); margin-bottom: 0.5rem; }
+    .kims-note p { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.75); line-height: 1.8; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem; }
+      .book-grid { grid-template-columns: 1fr; }
+      .kims-note { flex-direction: column; gap: 1.25rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="ea-tools.html">EA Tools</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="ai-help.html">AI Help</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Resource Vault</p>
+      <h1>Books Worth <em>Reading</em></h1>
+      <p class="page-header-sub">Recommendations from Kim and the community — a mix of EA essentials and reads that expand how you think about leadership, life, and your work.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- JUMP NAV -->
+  <nav class="jump-nav" aria-label="Jump to category">
+    <div class="jump-nav-inner">
+      <a href="#ea-reads">EA Essentials</a>
+      <a href="#broader-reads">Beyond the Desk</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- EA ESSENTIALS -->
+    <section class="book-section" id="ea-reads">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div>
+          <h2>EA Essentials</h2>
+          <p>Required reading for executive assistants at any stage of their career</p>
+        </div>
+      </div>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-spine spine-1">Leader</div>
+          <div class="book-info">
+            <div class="book-title">The Leader Assistant</div>
+            <div class="book-author">Jeremy Burrows</div>
+            <div class="book-desc">A definitive guide to becoming an indispensable partner to your executive. Covers the mindset, skills, and strategies that separate great EAs from the rest.</div>
+            <a href="https://leaderassistantbook.com/" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-2">Ultimate</div>
+          <div class="book-info">
+            <div class="book-title">Be the Ultimate Assistant</div>
+            <div class="book-author">Bonnie Low-Kramen</div>
+            <div class="book-desc">A practical, no-nonsense guide to mastering the art of the executive assistant role — from navigating office politics to commanding the respect you deserve.</div>
+            <a href="https://www.bonnielowkramen.com/the-book/" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-3">Worst</div>
+          <div class="book-info">
+            <div class="book-title">The World's Worst Assistant</div>
+            <div class="book-author">Sona Movsesian</div>
+            <div class="book-desc">A hilarious, honest look at the EA life from Conan O'Brien's longtime assistant. Equal parts funny and surprisingly insightful about what the job actually involves.</div>
+            <a href="https://www.penguinrandomhouse.com/books/675609/the-worlds-worst-assistant-by-sona-movsesian/" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-4">Evolved</div>
+          <div class="book-info">
+            <div class="book-title">Evolved Assistant</div>
+            <div class="book-author">Tara M. Sims</div>
+            <div class="book-desc">Unlocking the full potential of administrative professionals in the modern workplace. A forward-thinking look at how EAs can lead, grow, and drive real organizational impact.</div>
+            <a href="https://www.amazon.com/Evolved-Assistant-Unlocking-Administrative-Professionals/dp/B0DL6FTKV7/" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-5">Super</div>
+          <div class="book-info">
+            <div class="book-title">Super Powered</div>
+            <div class="book-author">Shannon Waller</div>
+            <div class="book-desc">Written specifically for entrepreneurial assistants, this book reframes the EA role as a true superpower — and shows how to use it to build an extraordinary partnership with your entrepreneur.</div>
+            <a href="https://a.co/d/6zfAwUb" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BEYOND THE DESK -->
+    <section class="book-section" id="broader-reads">
+      <div class="section-header">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h2>Beyond the Desk</h2>
+          <p>Reads from Kim's personal shelf — life, leadership, and a little perspective</p>
+        </div>
+      </div>
+      <div class="book-grid">
+
+        <div class="book-card">
+          <div class="book-spine spine-6">Doing</div>
+          <div class="book-info">
+            <div class="book-title">Doing Life with Your Adult Children</div>
+            <div class="book-author">Jim Burns</div>
+            <div class="book-desc">A thoughtful guide to navigating the evolving relationship between parents and their grown children — with grace, boundaries, and a whole lot of love.</div>
+            <a href="https://www.amazon.com/s?k=doing+life+with+your+adult+children+book" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-7">Oak</div>
+          <div class="book-info">
+            <div class="book-title">The Women of Oak Ridge</div>
+            <div class="book-author">Michelle Shocklee</div>
+            <div class="book-desc">A compelling historical novel set during WWII, following women who worked in secret at Oak Ridge, Tennessee — a story of sacrifice, courage, and quiet strength.</div>
+            <a href="https://www.amazon.com/Women-Oak-Ridge-Michelle-Shocklee/dp/1496484223" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-spine spine-8">Driven</div>
+          <div class="book-info">
+            <div class="book-title">Driven</div>
+            <div class="book-author">Douglas Brackmann &amp; Randy Kelley</div>
+            <div class="book-desc">An exploration of what it means to be intensely driven — and how to channel that energy productively. Particularly resonant for high-performers and the people who support them.</div>
+            <a href="https://www.amazon.com/s?k=driven+by+douglas+brackmann" target="_blank" rel="noopener" class="book-link">
+              View Book <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- KIM'S NOTE -->
+    <div class="kims-note">
+      <div class="kims-note-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h3>Have a book to recommend?</h3>
+        <p>This list grows with the community. If you've read something that changed how you think about your work or your life, share it — reach out via the contact page and Kim will add the best ones to the vault.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
