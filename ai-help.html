@@ -182,6 +182,14 @@
       z-index: 200;
     }
     .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 0;
+      right: 0;
+      height: 12px;
+    }
     .nav-dropdown-menu a {
       display: block;
       padding: 0.55rem 1.25rem;
