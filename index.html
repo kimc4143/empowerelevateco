@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Empower & Elevate | EA Resource Hub for EOS Implementers</title>
+  <meta name="description" content="A curated resource hub for executive assistants who support EOS Implementers — tools, templates, AI guides, and monthly workshops." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── Tokens ── */
+    :root {
+      --ivory:      #FAF7F2;
+      --ivory-dark: #F0EBE1;
+      --tan:        #D4C5B0;
+      --charcoal:   #2C2C2C;
+      --charcoal-mid: #555555;
+      --charcoal-light: #888888;
+      --teal:       #1A7A7A;
+      --teal-light: #228B8B;
+      --teal-pale:  #E0F0F0;
+      --teal-dark:  #0F6E56;
+      --white:      #FFFFFF;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    /* ── Base ── */
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      gap: 1px;
+    }
+
+    .nav-logo-top {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    .nav-logo-bottom {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 17px;
+      color: var(--teal);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-links .nav-cta {
+      background: var(--teal);
+      color: var(--ivory);
+      padding: 0.5rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--charcoal);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--ivory);
+      border-bottom: 1px solid var(--tan);
+      padding: 1.5rem 2.5rem;
+      gap: 1.25rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--teal);
+      padding: 5.5rem 2.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: 120px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 400;
+      color: var(--ivory);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--tan);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(250,247,242,0.78);
+      line-height: 1.8;
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--ivory);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--ivory-dark);
+    }
+
+    .btn-ghost-light {
+      display: inline-block;
+      color: rgba(250,247,242,0.82);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(250,247,242,0.35);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost-light:hover {
+      color: var(--ivory);
+      border-color: rgba(250,247,242,0.7);
+    }
+
+    /* ── ACCENT BAR ── */
+    .accent-bar {
+      height: 4px;
+      background: var(--tan);
+    }
+
+    /* ── SECTION SHARED ── */
+    .section {
+      padding: 5rem 2.5rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+      font-weight: 400;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-sub {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      background: var(--white);
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .intro-text p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text p:last-of-type { margin-bottom: 1.5rem; }
+
+    .sig-name {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--teal);
+      line-height: 1.2;
+    }
+
+    .sig-title {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal-light);
+      margin-top: 0.3rem;
+    }
+
+    .intro-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--ivory);
+      border: 0.5px solid var(--tan);
+      border-left: 3px solid var(--teal);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .stat-card .s-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--charcoal-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-card .s-value {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1.2;
+    }
+
+    .stat-card .s-desc {
+      font-size: 12px;
+      color: var(--charcoal-mid);
+      margin-top: 0.2rem;
+    }
+
+    /* ── VAULT ── */
+    .vault {
+      background: var(--ivory);
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .vault-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .vault-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 1.5rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .vault-card:hover {
+      border-color: var(--teal);
+      box-shadow: var(--shadow-card);
+    }
+
+    .vault-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .vault-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--teal);
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .vault-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+    }
+
+    .vault-card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.65;
+    }
+
+    .vault-card .card-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border-bottom: 1px solid var(--teal-pale);
+      transition: border-color 0.2s;
+    }
+
+    .vault-card:hover .card-link {
+      border-color: var(--teal);
+    }
+
+    /* ── WORKSHOPS ── */
+    .workshops {
+      background: var(--white);
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .workshop-list {
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .workshop-row {
+      display: grid;
+      grid-template-columns: 90px 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 1.75rem;
+      background: var(--white);
+      border-bottom: 0.5px solid var(--tan);
+      transition: background 0.2s;
+    }
+
+    .workshop-row:last-child { border-bottom: none; }
+    .workshop-row:hover { background: var(--ivory); }
+
+    .w-date {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .w-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.45;
+    }
+
+    .w-badge {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    .w-badge.upcoming {
+      background: #FFF8EC;
+      color: #9A6B00;
+    }
+
+    .w-badge.archived {
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+    }
+
+    .workshops-footer {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--teal);
+      color: var(--ivory);
+    }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: var(--teal);
+      padding: 4rem 2.5rem;
+    }
+
+    .newsletter-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .newsletter h2 {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-bottom: 0.4rem;
+    }
+
+    .newsletter p {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(250,247,242,0.68);
+      line-height: 1.7;
+      max-width: 380px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input[type="email"] {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1.1rem;
+      font-size: 13px;
+      font-family: var(--font-body);
+      color: var(--ivory);
+      width: 230px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input[type="email"]::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .newsletter-form input[type="email"]:focus {
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    .newsletter-form button {
+      background: var(--ivory);
+      color: var(--teal);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 0.7rem 1.5rem;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .newsletter-form button:hover {
+      background: var(--ivory-dark);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 2rem 2.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--tan);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(212,197,176,0.5);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--tan); }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(212,197,176,0.35);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+
+      .section { padding: 3.5rem 1.5rem; }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .vault-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workshop-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem 1.25rem;
+      }
+
+      .newsletter-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .newsletter-form {
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        width: 100%;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .vault-grid { grid-template-columns: 1fr; }
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+
+    /* ── PAGE LOAD ANIMATION ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero h1      { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; }
+    .hero-sub     { animation: fadeUp 0.7s ease both; animation-delay: 0.35s; }
+    .hero-actions { animation: fadeUp 0.7s ease both; animation-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li><a href="ea-tools.html">EA Tools</a></li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="ai-help.html">AI Help</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">For EAs supporting EOS Implementers</p>
+      <h1>Where strategy<br>meets <em>simplicity.</em></h1>
+      <p class="hero-sub">A curated resource hub for executive assistants who power the EOS ecosystem — tools, templates, AI guides, and a community that grows with you.</p>
+      <div class="hero-actions">
+        <a href="ea-tools.html" class="btn-primary">Explore the Vault</a>
+        <a href="workshops.html" class="btn-ghost-light">Upcoming Workshops &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="accent-bar"></div>
+
+  <!-- INTRO -->
+  <section class="section intro">
+    <div class="section-inner intro-grid">
+      <div class="intro-text">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title" style="margin-bottom:1.25rem;">Built by an EA,<br><em style="color:var(--teal);">for EAs.</em></h2>
+        <p>Empower &amp; Elevate started as a monthly workshop and grew into something more — a place where EAs who support EOS Implementers can find the tools, templates, and community they actually need.</p>
+        <p>Every resource here has been curated with intention. Nothing filler, nothing generic. Just what works in the real world of supporting high-performance EOS practitioners.</p>
+        <div class="sig-name">Kim Craig</div>
+        <div class="sig-title">Host, Empower &amp; Elevate</div>
+      </div>
+      <div class="intro-stats">
+        <div class="stat-card">
+          <div class="s-label">Community</div>
+          <div class="s-value">Monthly</div>
+          <div class="s-desc">Workshops with real-world takeaways</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Resource Vault</div>
+          <div class="s-value">30+ Tools</div>
+          <div class="s-desc">Curated specifically for EOS-focused EAs</div>
+        </div>
+        <div class="stat-card">
+          <div class="s-label">Focus</div>
+          <div class="s-value">EOS Niche</div>
+          <div class="s-desc">Tailored to the unique demands of the role</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VAULT -->
+  <section class="section vault">
+    <div class="section-inner">
+      <div class="section-label">Resource Vault</div>
+      <div class="section-title">Everything you need,<br>organized.</div>
+      <p class="section-sub">From scheduling tools to AI prompts — all of it curated for the way EAs actually work.</p>
+      <div class="vault-grid">
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>EA Tools</h3>
+          <p>Calendly, Superhuman, Notion, Asana and more — organized by workflow category.</p>
+          <a href="ea-tools.html" class="card-link">Browse Tools &rarr;</a>
+        </div>
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+          </div>
+          <h3>AI Help</h3>
+          <p>Prompts, guides, and workflows for using AI tools in your day-to-day EA work.</p>
+          <a href="ai-help.html" class="card-link">Explore AI Resources &rarr;</a>
+        </div>
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>Email Templates</h3>
+          <p>Ready-to-use templates for the emails EAs write most — polished and on-brand.</p>
+          <a href="email-templates.html" class="card-link">View Templates &rarr;</a>
+        </div>
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h3>Books</h3>
+          <p>Reading recommendations from Kim and the community — leadership, productivity, and EOS.</p>
+          <a href="books.html" class="card-link">See Reading List &rarr;</a>
+        </div>
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3>Media</h3>
+          <p>Podcasts, videos, and resources worth your time as an EA in the EOS world.</p>
+          <a href="media.html" class="card-link">Browse Media &rarr;</a>
+        </div>
+
+        <div class="vault-card">
+          <div class="vault-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Workshop Archive</h3>
+          <p>Recaps and resources from every monthly session — organized by topic and date.</p>
+          <a href="workshops.html" class="card-link">View Archive &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section class="section workshops">
+    <div class="section-inner">
+      <div class="section-label">Workshops</div>
+      <div class="section-title">Learn with the community.</div>
+      <p class="section-sub">Monthly sessions built around what EAs actually need. Practical, focused, and worth your hour.</p>
+
+      <div class="workshop-list">
+        <div class="workshop-row">
+          <div class="w-date">Jun 2025</div>
+          <div class="w-title">Managing Up: Communication Strategies for EOS Implementers</div>
+          <span class="w-badge upcoming">Upcoming</span>
+        </div>
+        <div class="workshop-row">
+          <div class="w-date">May 2025</div>
+          <div class="w-title">AI in the EA Workflow: What's Actually Worth Using</div>
+          <span class="w-badge archived">Recap Available</span>
+        </div>
+        <div class="workshop-row">
+          <div class="w-date">Apr 2025</div>
+          <div class="w-title">Calendar Mastery for High-Volume Implementers</div>
+          <span class="w-badge archived">Recap Available</span>
+        </div>
+        <div class="workshop-row">
+          <div class="w-date">Mar 2025</div>
+          <div class="w-title">Email Triage Systems That Actually Stick</div>
+          <span class="w-badge archived">Recap Available</span>
+        </div>
+      </div>
+
+      <div class="workshops-footer">
+        <a href="workshops.html" class="btn-outline">View All Workshops</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <div>
+        <h2>Stay in the loop.</h2>
+        <p>Workshop announcements, new resources, and community updates — straight to your inbox.</p>
+      </div>
+      <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input[type="email"]');
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Thank you!';
+      btn.style.background = '#E0F0F0';
+      btn.style.color = 'var(--teal)';
+      input.value = '';
+      input.disabled = true;
+      btn.disabled = true;
+    }
+  </script>
+
+</body>
+</html>
