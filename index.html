@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Empower & Elevate | EA Resource Hub for EAs</title>
+  <title>Empower & Elevate | EA Resource Hub for EOS Implementers</title>
   <meta name="description" content="A curated resource hub for executive assistants who support EOS Implementers — tools, templates, AI guides, and monthly workshops." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -731,6 +731,46 @@
     .hero h1      { animation: fadeUp 0.7s ease both; animation-delay: 0.2s; }
     .hero-sub     { animation: fadeUp 0.7s ease both; animation-delay: 0.35s; }
     .hero-actions { animation: fadeUp 0.7s ease both; animation-delay: 0.5s; }
+  
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--charcoal);
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body);
+      display: flex; align-items: center; gap: 4px;
+      padding: 0; transition: color 0.2s;
+    }
+    .nav-dropdown-toggle:hover { color: var(--teal); }
+    .nav-dropdown-toggle svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      min-width: 180px;
+      padding: 0.5rem 0;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.55rem 1.25rem;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--charcoal);
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
+    .nav-dropdown-menu a.active { color: var(--teal); }
+
   </style>
 </head>
 <body>
@@ -741,11 +781,22 @@
       <span class="nav-logo-top">Empower</span>
       <span class="nav-logo-bottom">&amp; Elevate</span>
     </a>
-    <ul class="nav-links">
+        <ul class="nav-links">
       <li><a href="about.html">About</a></li>
-      <li><a href="ea-tools.html">EA Tools</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle">
+          Vault
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+      <a href="ea-tools.html">EA Tools</a>
+      <a href="ai-help.html">AI Help</a>
+      <a href="email-templates.html">Email Templates</a>
+      <a href="books.html">Books</a>
+      <a href="media.html">Media</a>
+        </div>
+      </li>
       <li><a href="workshops.html">Workshops</a></li>
-      <li><a href="ai-help.html">AI Help</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
     </ul>
@@ -755,18 +806,21 @@
   </nav>
 
   <!-- MOBILE MENU -->
-  <div class="mobile-menu">
+    <div class="mobile-menu">
     <a href="about.html">About</a>
     <a href="ea-tools.html">EA Tools</a>
-    <a href="workshops.html">Workshops</a>
     <a href="ai-help.html">AI Help</a>
+    <a href="email-templates.html">Email Templates</a>
+    <a href="books.html">Books</a>
+    <a href="media.html">Media</a>
+    <a href="workshops.html">Workshops</a>
     <a href="contact.html">Contact</a>
   </div>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">For EAs supporting Companies running on EOS</p>
+      <p class="hero-eyebrow">For EAs supporting EOS Implementers</p>
       <h1>Where strategy<br>meets <em>simplicity.</em></h1>
       <p class="hero-sub">A curated resource hub for executive assistants who power the EOS ecosystem — tools, templates, AI guides, and a community that grows with you.</p>
       <div class="hero-actions">
