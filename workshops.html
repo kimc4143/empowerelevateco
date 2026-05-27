@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workshops | Empower &amp; Elevate</title>
+  <meta name="description" content="Monthly workshops for Executive Assistants supporting EOS Implementers — practical, community-driven, and worth your hour." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:          #FAF7F2;
+      --ivory-dark:     #F0EBE1;
+      --tan:            #D4C5B0;
+      --charcoal:       #2C2C2C;
+      --charcoal-mid:   #555555;
+      --charcoal-light: #888888;
+      --teal:           #1A7A7A;
+      --teal-light:     #228B8B;
+      --teal-pale:      #E0F0F0;
+      --teal-dark:      #0F6E56;
+      --white:          #FFFFFF;
+      --font-display:   'Playfair Display', Georgia, serif;
+      --font-body:      'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ivory); border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 22px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--charcoal);
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body);
+      display: flex; align-items: center; gap: 4px;
+      padding: 0; transition: color 0.2s;
+    }
+    .nav-dropdown-toggle:hover { color: var(--teal); }
+    .nav-dropdown-toggle svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      min-width: 180px;
+      padding: 0.5rem 0;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 0; right: 0;
+      height: 12px;
+    }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.55rem 1.25rem;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--charcoal);
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 5rem 2.5rem; }
+
+    /* ── WHAT TO EXPECT ── */
+    .expect-section { margin-bottom: 5rem; }
+    .section-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; font-weight: 400; }
+    .section-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.25; }
+    .section-sub { font-size: 14px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.8; max-width: 580px; margin-bottom: 2.5rem; }
+
+    .expect-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .expect-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      border-top: 3px solid var(--teal);
+      padding: 1.75rem 1.5rem;
+    }
+
+    .expect-number {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--teal-pale);
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .expect-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+    }
+
+    .expect-card p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.65;
+    }
+
+    /* ── UPCOMING DATES ── */
+    .dates-section { margin-bottom: 5rem; }
+
+    .dates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+
+    .date-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .date-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card); }
+    .date-card.next { border-color: var(--teal); background: var(--teal-pale); }
+
+    .date-block {
+      flex-shrink: 0;
+      width: 56px;
+      text-align: center;
+      background: var(--teal);
+      border-radius: var(--radius-md);
+      padding: 0.5rem 0;
+    }
+    .date-card.next .date-block { background: var(--teal-dark); }
+
+    .date-month {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .date-day {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .date-info { flex: 1; }
+
+    .date-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.4rem;
+    }
+    .badge-next     { background: var(--teal); color: var(--white); }
+    .badge-upcoming { background: var(--ivory-dark); color: var(--charcoal-light); border: 0.5px solid var(--tan); }
+
+    .date-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+
+    .date-topic {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--charcoal-light);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .date-cta {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-pale);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+    .date-cta:hover { background: var(--teal); color: var(--ivory); }
+    .date-card.next .date-cta { background: var(--teal); color: var(--ivory); }
+    .date-card.next .date-cta:hover { background: var(--teal-dark); }
+
+    /* ── ARCHIVE ── */
+    .archive-section { }
+
+    .archive-list {
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .archive-row {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 1.75rem;
+      background: var(--white);
+      border-bottom: 0.5px solid var(--tan);
+      transition: background 0.2s;
+    }
+    .archive-row:last-child { border-bottom: none; }
+    .archive-row:hover { background: var(--ivory); }
+
+    .archive-date {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .archive-title {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+
+    .archive-badge {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+    }
+
+    /* ── CALLOUT ── */
+    .callout-strip {
+      background: var(--teal);
+      padding: 4rem 2.5rem;
+      margin-top: 0;
+    }
+    .callout-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .callout-strip h2 { font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--ivory); margin-bottom: 0.4rem; }
+    .callout-strip p { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.7; max-width: 440px; }
+    .btn-ivory { display: inline-block; background: var(--ivory); color: var(--teal); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.75rem 1.75rem; border-radius: var(--radius-sm); transition: background 0.2s; }
+    .btn-ivory:hover { background: var(--ivory-dark); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .content { padding: 3.5rem 1.5rem; }
+      .expect-grid { grid-template-columns: 1fr; }
+      .dates-grid { grid-template-columns: 1fr; }
+      .archive-row { grid-template-columns: 80px 1fr; }
+      .archive-badge { display: none; }
+      .callout-strip { padding: 3rem 1.5rem; }
+      .callout-strip-inner { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle">
+          Vault
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="ea-tools.html">EA Tools</a>
+          <a href="ai-help.html">AI Help</a>
+          <a href="email-templates.html">Email Templates</a>
+          <a href="books.html">Books</a>
+          <a href="media.html">Media</a>
+        </div>
+      </li>
+      <li><a href="workshops.html" class="active">Workshops</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="email-templates.html">Email Templates</a>
+    <a href="books.html">Books</a>
+    <a href="media.html">Media</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Community</p>
+      <h1>Monthly <em>Workshops</em></h1>
+      <p class="page-header-sub">Practical sessions for EAs who want to grow, connect, and support one another. One hour, once a month, always worth it.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- WHAT TO EXPECT -->
+    <section class="expect-section">
+      <div class="section-label">How it works</div>
+      <div class="section-title">What to expect</div>
+      <p class="section-sub">Every session follows a consistent format so you always know what you're walking into — and you're always welcome, whether it's your first time or your tenth.</p>
+      <div class="expect-grid">
+        <div class="expect-card">
+          <div class="expect-number">01</div>
+          <h3>Introductions</h3>
+          <p>Every workshop kicks off with one-minute intros. A quick, low-pressure way to meet who's in the room and connect with EAs across the EOS ecosystem.</p>
+        </div>
+        <div class="expect-card">
+          <div class="expect-number">02</div>
+          <h3>Topic Deep-Dive</h3>
+          <p>Each session has a focused topic — tools, workflows, software deep-dives, or timely conversations about the EA role. Practical, relevant, and built around real situations.</p>
+        </div>
+        <div class="expect-card">
+          <div class="expect-number">03</div>
+          <h3>Community & Connection</h3>
+          <p>Time to talk, share, and just be around people who get it. The community is the point — Kim keeps the conversation warm, honest, and refreshingly real.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING DATES -->
+    <section class="dates-section">
+      <div class="section-label">2025 Schedule</div>
+      <div class="section-title">Upcoming workshops</div>
+      <p class="section-sub">All sessions are virtual. Reach out via the contact page to get the details and join the next one.</p>
+      <div class="dates-grid">
+
+        <div class="date-card next">
+          <div class="date-block">
+            <div class="date-month">Jun</div>
+            <div class="date-day">10</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-next">Next Up</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Reserve Your Spot &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Jul</div>
+            <div class="date-day">15</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Aug</div>
+            <div class="date-day">12</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Sep</div>
+            <div class="date-day">16</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Oct</div>
+            <div class="date-day">14</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Nov</div>
+            <div class="date-day">11</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+        <div class="date-card">
+          <div class="date-block">
+            <div class="date-month">Dec</div>
+            <div class="date-day">9</div>
+          </div>
+          <div class="date-info">
+            <span class="date-badge badge-upcoming">Upcoming</span>
+            <div class="date-title">Monthly Workshop</div>
+            <div class="date-topic">Topic announced soon</div>
+            <a href="contact.html" class="date-cta">Get in Touch &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section class="archive-section">
+      <div class="section-label">Past Sessions</div>
+      <div class="section-title">Workshop archive</div>
+      <p class="section-sub">Recaps and resources from previous workshops. More added after each session.</p>
+      <div class="archive-list">
+        <div class="archive-row">
+          <div class="archive-date">May 2025</div>
+          <div class="archive-title">Monthly Workshop — May Session</div>
+          <span class="archive-badge">Recap Coming Soon</span>
+        </div>
+        <div class="archive-row">
+          <div class="archive-date">Apr 2025</div>
+          <div class="archive-title">Monthly Workshop — April Session</div>
+          <span class="archive-badge">Recap Coming Soon</span>
+        </div>
+        <div class="archive-row">
+          <div class="archive-date">Mar 2025</div>
+          <div class="archive-title">Monthly Workshop — March Session</div>
+          <span class="archive-badge">Recap Coming Soon</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- CALLOUT -->
+  <section class="callout-strip">
+    <div class="callout-strip-inner">
+      <div>
+        <h2>Ready to join us?</h2>
+        <p>Reach out to Kim directly and she'll get you the details for the next session. No forms, no fuss — just a friendly email.</p>
+      </div>
+      <a href="contact.html" class="btn-ivory">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
