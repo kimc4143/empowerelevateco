@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Empower &amp; Elevate</title>
+  <meta name="description" content="Meet Kim Craig — Executive Assistant, Integrator, Air National Guard Veteran, and founder of Empower & Elevate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:          #FAF7F2;
+      --ivory-dark:     #F0EBE1;
+      --tan:            #D4C5B0;
+      --charcoal:       #2C2C2C;
+      --charcoal-mid:   #555555;
+      --charcoal-light: #888888;
+      --teal:           #1A7A7A;
+      --teal-light:     #228B8B;
+      --teal-pale:      #E0F0F0;
+      --teal-dark:      #0F6E56;
+      --white:          #FFFFFF;
+      --font-display:   'Playfair Display', Georgia, serif;
+      --font-body:      'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ivory); border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 17px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle {
+      font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--charcoal);
+      background: none; border: none; cursor: pointer;
+      font-family: var(--font-body);
+      display: flex; align-items: center; gap: 4px;
+      padding: 0; transition: color 0.2s;
+    }
+    .nav-dropdown-toggle:hover { color: var(--teal); }
+    .nav-dropdown-toggle svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      min-width: 180px;
+      padding: 0.5rem 0;
+      z-index: 200;
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -12px; left: 0; right: 0;
+      height: 12px;
+    }
+    .nav-dropdown-menu a {
+      display: block;
+      padding: 0.55rem 1.25rem;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--charcoal);
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .nav-dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── BIO SECTION ── */
+    .bio-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.75fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* ── LEFT: IDENTITY CARD ── */
+    .identity-card {
+      position: sticky;
+      top: 88px;
+    }
+
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 260px;
+      background: var(--teal-pale);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      border: 0.5px solid var(--tan);
+    }
+
+    .avatar-initials {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 400;
+      color: var(--teal);
+      font-style: italic;
+    }
+
+    .identity-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.25rem;
+    }
+
+    .identity-title {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+
+    .identity-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .identity-tag {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--charcoal-mid);
+      background: var(--ivory-dark);
+      border: 0.5px solid var(--tan);
+      padding: 4px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .identity-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal-light);
+      margin-bottom: 1.75rem;
+    }
+    .identity-location svg { width: 14px; height: 14px; stroke: var(--charcoal-light); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    .identity-cta {
+      display: block;
+      background: var(--teal);
+      color: var(--ivory);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .identity-cta:hover { background: var(--teal-light); }
+
+    /* ── RIGHT: BIO TEXT ── */
+    .bio-content { padding-top: 0.25rem; }
+
+    .bio-content p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+    .bio-content p:last-of-type { margin-bottom: 0; }
+
+    .bio-content p strong {
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .bio-pull {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1.45;
+      border-left: 3px solid var(--teal);
+      padding-left: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    /* ── VALUES STRIP ── */
+    .values-strip {
+      background: var(--white);
+      border-top: 1px solid var(--tan);
+      border-bottom: 1px solid var(--tan);
+      padding: 3.5rem 2.5rem;
+    }
+    .values-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .values-label {
+      font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 0.5rem; font-weight: 400;
+    }
+    .values-title {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 400; color: var(--charcoal);
+      margin-bottom: 2.5rem;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .value-card {
+      background: var(--ivory);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      border-top: 3px solid var(--teal);
+    }
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+    }
+    .value-card p {
+      font-size: 13px; font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.65;
+    }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: var(--teal);
+      padding: 4rem 2.5rem;
+    }
+    .cta-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .cta-strip h2 {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 400;
+      color: var(--ivory); margin-bottom: 0.4rem;
+    }
+    .cta-strip p {
+      font-size: 14px; font-weight: 300;
+      color: rgba(250,247,242,0.72);
+      line-height: 1.7; max-width: 440px;
+    }
+    .cta-strip-actions { display: flex; gap: 1rem; flex-wrap: wrap; flex-shrink: 0; }
+    .btn-ivory {
+      display: inline-block;
+      background: var(--ivory); color: var(--teal);
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm); transition: background 0.2s;
+    }
+    .btn-ivory:hover { background: var(--ivory-dark); }
+    .btn-ghost-light {
+      display: inline-block;
+      color: rgba(250,247,242,0.82);
+      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(250,247,242,0.35);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost-light:hover { color: var(--ivory); border-color: rgba(250,247,242,0.7); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .bio-section { grid-template-columns: 1fr; gap: 3rem; padding: 3.5rem 1.5rem; }
+      .identity-card { position: static; }
+      .avatar { max-width: 180px; }
+      .values-grid { grid-template-columns: 1fr; }
+      .cta-strip-inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .values-strip { padding: 3rem 1.5rem; }
+      .cta-strip { padding: 3rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html" class="active">About</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle">
+          Vault
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="ea-tools.html">EA Tools</a>
+          <a href="ai-help.html">AI Help</a>
+          <a href="email-templates.html">Email Templates</a>
+          <a href="books.html">Books</a>
+          <a href="media.html">Media</a>
+        </div>
+      </li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="workshops.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="email-templates.html">Email Templates</a>
+    <a href="books.html">Books</a>
+    <a href="media.html">Media</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">The Person Behind the Community</p>
+      <h1>Meet <em>Kim</em></h1>
+      <p class="page-header-sub">Executive Assistant, Integrator, Air National Guard Veteran, and founder of Empower &amp; Elevate.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- BIO -->
+  <section class="bio-section">
+
+    <!-- LEFT: IDENTITY -->
+    <div class="identity-card">
+      <div class="avatar">
+        <span class="avatar-initials">KC</span>
+      </div>
+      <div class="identity-name">Kim Craig</div>
+      <div class="identity-title">Founder, Empower &amp; Elevate</div>
+      <div class="identity-tags">
+        <span class="identity-tag">Executive Assistant</span>
+        <span class="identity-tag">Integrator</span>
+        <span class="identity-tag">Air National Guard Veteran</span>
+        <span class="identity-tag">EOS</span>
+      </div>
+      <div class="identity-location">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        North Carolina
+      </div>
+      <a href="contact.html" class="identity-cta">Get in Touch</a>
+    </div>
+
+    <!-- RIGHT: BIO -->
+    <div class="bio-content">
+      <p>
+        <strong>Kim is an Executive Assistant, Integrator, and Air National Guard Veteran</strong> who brings clarity, structure, and calm to fast-moving leaders and teams. With a background spanning education, operations, and executive support, she now partners virtually from North Carolina with an EOS Implementer in Michigan — helping organizations stay aligned, intentional, and moving forward.
+      </p>
+
+      <div class="bio-pull">
+        "After years of supporting leaders, I kept seeing how often administrative professionals work in isolation. That had to change."
+      </div>
+
+      <p>
+        After years of supporting leaders and witnessing how often administrative professionals work in isolation, Kim founded <strong>Empower &amp; Elevate</strong> — a monthly workshop designed to connect Executive Assistants and Project Managers who want to grow, collaborate, and support one another. Her sessions blend practical tools, honest conversation, and a welcoming community that reflects her signature style: warm, grounded, and refreshingly real.
+      </p>
+
+      <p>
+        Whether she's orchestrating executive logistics or facilitating conversations that spark breakthroughs, Kim leads with service, humor, and a deep belief in the power of community.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-strip">
+    <div class="values-inner">
+      <div class="values-label">What drives the community</div>
+      <div class="values-title">The Empower &amp; Elevate approach</div>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Practical over theoretical</h3>
+          <p>Every workshop is built around real tools and real situations — nothing generic, nothing filler. If it doesn't help on Monday morning, it doesn't make the cut.</p>
+        </div>
+        <div class="value-card">
+          <h3>Community over isolation</h3>
+          <p>EAs and PMs do their best work when they're connected. This community exists to end the isolation that too many administrative professionals quietly accept.</p>
+        </div>
+        <div class="value-card">
+          <h3>Warm and real</h3>
+          <p>No corporate fluff, no performance. Just honest conversation, genuine support, and a space where you can show up as you actually are.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-strip">
+    <div class="cta-strip-inner">
+      <div>
+        <h2>Ready to join the community?</h2>
+        <p>Monthly workshops, a growing resource vault, and a network of EAs who get it. Come as you are.</p>
+      </div>
+      <div class="cta-strip-actions">
+        <a href="workshops.html" class="btn-ivory">View Workshops</a>
+        <a href="contact.html" class="btn-ghost-light">Get in Touch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Kim Craig &mdash; Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
