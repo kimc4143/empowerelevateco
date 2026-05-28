@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Empower &amp; Elevate</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a { text-decoration: none; }
+
+    :root {
+      --ivory:        #FAF7F2;
+      --ivory-dark:   #F0EBE1;
+      --tan:          #D4C5B0;
+      --charcoal:     #2C2C2C;
+      --charcoal-mid: #555555;
+      --teal:         #1A7A7A;
+      --teal-light:   #228B8B;
+      --teal-pale:    #E0F0F0;
+      --white:        #FFFFFF;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-lg: 12px;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      gap: 2px;
+      margin-bottom: 3rem;
+    }
+
+    .logo-top {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    .logo-bottom {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--teal);
+    }
+
+    .error-number {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 18vw, 140px);
+      font-weight: 600;
+      color: var(--teal-pale);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -4px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--teal);
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.8;
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--ivory);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--teal-light); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { background: var(--teal); color: var(--ivory); }
+
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--tan);
+      border-radius: 2px;
+      margin: 2.5rem auto;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="logo" aria-label="Empower and Elevate home">
+    <span class="logo-top">Empower</span>
+    <span class="logo-bottom">&amp; Elevate</span>
+  </a>
+
+  <div class="error-number">404</div>
+
+  <h1>This page doesn't <em>exist.</em></h1>
+  <p>The page you're looking for may have moved or the link might be incorrect. Let's get you back on track.</p>
+
+  <div class="actions">
+    <a href="index.html" class="btn-primary">Back to Home</a>
+    <a href="contact.html" class="btn-outline">Contact Kim</a>
+  </div>
+
+  <div class="divider"></div>
+
+</body>
+</html>
