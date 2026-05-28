@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EOS Academy Known Issues | Empower &amp; Elevate</title>
-  <meta name="description" content="A running list of known issues with EOS Academy and their workarounds — curated by the Empower & Elevate community." />
+  <title>EOS Academy Guide | Empower &amp; Elevate</title>
+  <meta name="description" content="Community knowledge base for EOS Academy — questions, answers, tips, and known issues curated by the Empower & Elevate community." />
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -48,7 +48,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
     .nav {
       position: sticky; top: 0; z-index: 100;
       background: var(--ivory); border-bottom: 1px solid var(--tan);
@@ -64,52 +63,17 @@
     .nav-links a:hover, .nav-links a.active { color: var(--teal); }
     .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
     .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
-
-    /* ── DROPDOWN ── */
     .nav-dropdown { position: relative; }
-    .nav-dropdown-toggle {
-      font-size: 12px; font-weight: 400; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--charcoal);
-      background: none; border: none; cursor: pointer;
-      font-family: var(--font-body);
-      display: flex; align-items: center; gap: 4px;
-      padding: 0; transition: color 0.2s;
-    }
+    .nav-dropdown-toggle { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: var(--font-body); display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s; }
     .nav-dropdown-toggle:hover { color: var(--teal); }
     .nav-dropdown-toggle svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
     .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
-    .nav-dropdown-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--white);
-      border: 0.5px solid var(--tan);
-      border-radius: var(--radius-lg);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-      min-width: 180px;
-      padding: 0.5rem 0;
-      z-index: 200;
-    }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 0.5px solid var(--tan); border-radius: var(--radius-lg); box-shadow: 0 8px 24px rgba(0,0,0,0.08); min-width: 200px; padding: 0.5rem 0; z-index: 200; }
     .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-    .nav-dropdown-menu::before {
-      content: '';
-      position: absolute;
-      top: -12px; left: 0; right: 0;
-      height: 12px;
-    }
-    .nav-dropdown-menu a {
-      display: block;
-      padding: 0.55rem 1.25rem;
-      font-size: 12px; font-weight: 400; letter-spacing: 0.06em;
-      text-transform: uppercase; color: var(--charcoal);
-      transition: background 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+    .nav-dropdown-menu a { display: block; padding: 0.55rem 1.25rem; font-size: 12px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal); transition: background 0.15s, color 0.15s; white-space: nowrap; }
     .nav-dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
     .nav-dropdown-menu a.active { color: var(--teal); }
-
     .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
     .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
     .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
@@ -117,7 +81,6 @@
     .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
     .mobile-menu a:hover { color: var(--teal); }
 
-    /* ── PAGE HEADER ── */
     .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
     .page-header-inner { max-width: 1100px; margin: 0 auto; }
     .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
@@ -126,161 +89,48 @@
     .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
     .accent-bar { height: 4px; background: var(--tan); }
 
-    /* ── JUMP NAV ── */
     .jump-nav { background: var(--white); border-bottom: 1px solid var(--tan); padding: 0 2.5rem; overflow-x: auto; }
     .jump-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; }
     .jump-nav a { display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: var(--charcoal-light); padding: 1rem 1.25rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
     .jump-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
 
-    /* ── CONTENT ── */
     .content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
 
-    /* ── CALLOUT ── */
-    .callout {
-      background: var(--amber-pale);
-      border-left: 3px solid var(--amber);
-      border-radius: var(--radius-lg);
-      padding: 1.25rem 1.75rem;
-      margin-bottom: 3rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
+    .callout { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: var(--radius-lg); padding: 1.25rem 1.75rem; margin-bottom: 3rem; display: flex; align-items: flex-start; gap: 1rem; }
     .callout-icon { flex-shrink: 0; margin-top: 2px; }
-    .callout-icon svg { width: 18px; height: 18px; stroke: var(--amber); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .callout-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
     .callout p { font-size: 13px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.7; }
-    .callout strong { font-weight: 500; color: var(--amber); }
+    .callout a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
 
-    /* ── CATEGORY ── */
     .category { margin-bottom: 3.5rem; }
     .category:last-child { margin-bottom: 0; }
-
-    .category-header {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 1.5rem; padding-bottom: 1rem;
-      border-bottom: 1px solid var(--tan);
-    }
+    .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--tan); }
     .category-icon { width: 42px; height: 42px; background: var(--teal-pale); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .category-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
     .category-header h2 { font-family: var(--font-display); font-size: 22px; font-weight: 600; color: var(--charcoal); }
 
-    /* ── ACCORDION ── */
     .accordion { display: flex; flex-direction: column; gap: 0.75rem; }
-
-    .accordion-item {
-      background: var(--white);
-      border: 0.5px solid var(--tan);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
+    .accordion-item { background: var(--white); border: 0.5px solid var(--tan); border-radius: var(--radius-lg); overflow: hidden; transition: border-color 0.2s; }
     .accordion-item:hover { border-color: var(--teal); }
     .accordion-item.open { border-color: var(--teal); }
-
-    .accordion-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      font-family: var(--font-body);
-    }
-
-    .accordion-trigger-left {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      flex: 1;
-    }
-
-    .issue-badge {
-      flex-shrink: 0;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: var(--radius-sm);
-      white-space: nowrap;
-    }
-    .badge-open     { background: var(--amber-pale); color: var(--amber); }
-    .badge-resolved { background: var(--teal-pale); color: var(--teal-dark); }
-    .badge-intermittent { background: #FFF0F0; color: #9A3B3B; }
-
-    .accordion-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--charcoal);
-      line-height: 1.4;
-    }
-
-    .accordion-chevron {
-      flex-shrink: 0;
-      width: 18px; height: 18px;
-      stroke: var(--charcoal-light); fill: none;
-      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
-      transition: transform 0.25s;
-    }
+    .accordion-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-body); }
+    .accordion-trigger-left { display: flex; align-items: center; gap: 0.85rem; flex: 1; }
+    .entry-badge { flex-shrink: 0; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: var(--radius-sm); white-space: nowrap; }
+    .badge-faq      { background: var(--teal-pale); color: var(--teal-dark); }
+    .badge-tip      { background: #EEF7EE; color: #2E7D32; }
+    .badge-issue    { background: var(--amber-pale); color: var(--amber); }
+    .badge-resolved { background: var(--ivory-dark); color: var(--charcoal-light); border: 0.5px solid var(--tan); }
+    .accordion-title { font-size: 14px; font-weight: 500; color: var(--charcoal); line-height: 1.4; }
+    .accordion-chevron { flex-shrink: 0; width: 18px; height: 18px; stroke: var(--charcoal-light); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s; }
     .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
-
-    .accordion-body {
-      display: none;
-      padding: 0 1.5rem 1.5rem;
-      border-top: 0.5px solid var(--tan);
-    }
+    .accordion-body { display: none; padding: 0 1.5rem 1.5rem; border-top: 0.5px solid var(--tan); }
     .accordion-item.open .accordion-body { display: block; }
+    .accordion-body p { font-size: 13px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.75; margin-top: 1rem; margin-bottom: 0.75rem; }
+    .answer-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.4rem; margin-top: 1rem; }
+    .answer-box { background: var(--teal-pale); border-radius: var(--radius-md); padding: 0.85rem 1rem; font-size: 13px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.7; }
+    .reported-by { font-size: 11px; color: var(--charcoal-light); margin-top: 0.75rem; font-style: italic; }
 
-    .accordion-body p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--charcoal-mid);
-      line-height: 1.75;
-      margin-top: 1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .workaround-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 0.4rem;
-      margin-top: 1rem;
-    }
-
-    .workaround {
-      background: var(--teal-pale);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--charcoal-mid);
-      line-height: 1.7;
-    }
-
-    .reported-by {
-      font-size: 11px;
-      color: var(--charcoal-light);
-      margin-top: 0.75rem;
-      font-style: italic;
-    }
-
-    /* ── SUGGEST BOX ── */
-    .suggest-box {
-      background: var(--teal);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      margin-top: 4rem;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
+    .suggest-box { background: var(--teal); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 4rem; display: flex; gap: 2rem; align-items: flex-start; }
     .suggest-box-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .suggest-box-icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
     .suggest-box h3 { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; color: var(--ivory); margin-bottom: 0.5rem; }
@@ -288,7 +138,6 @@
     .suggest-box a { color: rgba(250,247,242,0.9); text-decoration: underline; text-underline-offset: 2px; }
     .suggest-box a:hover { color: var(--ivory); }
 
-    /* ── FOOTER ── */
     footer { background: var(--charcoal); padding: 2rem 2.5rem; }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
@@ -297,7 +146,6 @@
     .footer-links a:hover { color: var(--tan); }
     .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
@@ -314,7 +162,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
       <span class="nav-logo-top">Empower</span>
@@ -323,7 +170,7 @@
     <ul class="nav-links">
       <li><a href="about.html">About</a></li>
       <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle">
+        <button class="nav-dropdown-toggle" style="color:var(--teal)">
           Vault
           <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
@@ -333,7 +180,7 @@
           <a href="email-templates.html">Email Templates</a>
           <a href="books.html">Books</a>
           <a href="media.html">Media</a>
-          <a href="eos-academy.html">EOS Academy Issue</a>
+          <a href="eos-academy.html" class="active">EOS Academy Guide</a>
         </div>
       </li>
       <li><a href="workshops.html">Workshops</a></li>
@@ -351,78 +198,60 @@
     <a href="email-templates.html">Email Templates</a>
     <a href="books.html">Books</a>
     <a href="media.html">Media</a>
-    <a href="eos-academy.html">EOS Academy Issues</a>
+    <a href="eos-academy.html">EOS Academy Guide</a>
     <a href="workshops.html">Workshops</a>
     <a href="contact.html">Contact</a>
   </div>
 
-  <!-- PAGE HEADER -->
   <header class="page-header">
     <div class="page-header-inner">
       <p class="page-eyebrow">Resource Vault</p>
-      <h1>EOS Academy<br><em>Known Issues</em></h1>
-      <p class="page-header-sub">A running list of issues the community has encountered in EOS Academy - with workarounds where we have them.</p>
+      <h1>EOS Academy<br><em>Community Guide</em></h1>
+      <p class="page-header-sub">Questions, answers, tips, and known issues for EOS Academy - sourced from the Empower &amp; Elevate community.</p>
     </div>
   </header>
   <div class="accent-bar"></div>
 
-  <!-- JUMP NAV -->
   <nav class="jump-nav" aria-label="Jump to category">
     <div class="jump-nav-inner">
-      <a href="#login">Login &amp; Access</a>
-      <a href="#navigation">Navigation</a>
-      <a href="#quirks">General Quirks</a>
+      <a href="#purchasing">Purchasing &amp; Access</a>
+      <a href="#getting-started">Getting Started</a>
+      <a href="#using">Using the Platform</a>
+      <a href="#issues">Known Issues</a>
     </div>
   </nav>
 
-  <!-- CONTENT -->
   <main class="content">
 
     <div class="callout">
       <div class="callout-icon">
-        <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
-      <p><strong>Community-sourced:</strong> These issues have been reported by EAs in the Empower &amp; Elevate community. If you've found a new issue or a better workaround, <a href="contact.html" style="color:var(--amber);text-decoration:underline;">let Kim know</a> and we'll add it here.</p>
+      <p>This guide is built from real questions and experiences shared by EAs in the Empower &amp; Elevate community. Have something to add? <a href="contact.html">Send it to Kim</a> and we'll get it in here.</p>
     </div>
 
-    <!-- LOGIN & ACCESS -->
-    <section class="category" id="login">
+    <!-- PURCHASING & ACCESS -->
+    <section class="category" id="purchasing">
       <div class="category-header">
         <div class="category-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         </div>
-        <h2>Login &amp; Access</h2>
+        <h2>Purchasing &amp; Access</h2>
       </div>
       <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left">
-              <span class="issue-badge badge-open">Open</span>
-              <span class="accordion-title">Placeholder - Login issue title goes here</span>
+              <span class="entry-badge badge-faq">FAQ</span>
+              <span class="accordion-title">Can clients purchase EOS Leadership Manuals on their own or do they have to go through their Implementer?</span>
             </div>
             <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="accordion-body">
-            <p>Placeholder description of the login issue. Replace this with the actual issue description once Kim provides the details.</p>
-            <div class="workaround-label">Workaround</div>
-            <div class="workaround">Placeholder workaround steps. Describe what EAs can do to get around this issue until it is resolved.</div>
-            <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left">
-              <span class="issue-badge badge-intermittent">Intermittent</span>
-              <span class="accordion-title">Placeholder - Intermittent access issue title goes here</span>
-            </div>
-            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-body">
-            <p>Placeholder description of an intermittent access issue. Replace with real details from Kim.</p>
-            <div class="workaround-label">Workaround</div>
-            <div class="workaround">Placeholder workaround. Replace with actual steps.</div>
+            <p>Clients have asked whether they can purchase EOS Leadership Manuals directly through EOS Academy or if all purchases must go through their Implementer.</p>
+            <div class="answer-label">Answer</div>
+            <div class="answer-box">Answer coming soon - to be confirmed by the community.</div>
             <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
           </div>
         </div>
@@ -430,44 +259,28 @@
       </div>
     </section>
 
-    <!-- NAVIGATION -->
-    <section class="category" id="navigation">
+    <!-- GETTING STARTED -->
+    <section class="category" id="getting-started">
       <div class="category-header">
         <div class="category-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <h2>Navigation</h2>
+        <h2>Getting Started</h2>
       </div>
       <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left">
-              <span class="issue-badge badge-open">Open</span>
-              <span class="accordion-title">Placeholder - Navigation issue title goes here</span>
+              <span class="entry-badge badge-faq">FAQ</span>
+              <span class="accordion-title">Placeholder - Common first-time setup question</span>
             </div>
             <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="accordion-body">
-            <p>Placeholder description of the navigation issue. Replace with real details.</p>
-            <div class="workaround-label">Workaround</div>
-            <div class="workaround">Placeholder workaround steps. Replace with actual steps from the community.</div>
-            <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-trigger" onclick="toggleAccordion(this)">
-            <div class="accordion-trigger-left">
-              <span class="issue-badge badge-resolved">Resolved</span>
-              <span class="accordion-title">Placeholder - Resolved navigation issue title goes here</span>
-            </div>
-            <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="accordion-body">
-            <p>Placeholder description of a resolved navigation issue. Replace with real details.</p>
-            <div class="workaround-label">Resolution</div>
-            <div class="workaround">Placeholder resolution. Describe how this was fixed or what update resolved it.</div>
+            <p>Placeholder - replace with real question and answer when available.</p>
+            <div class="answer-label">Answer</div>
+            <div class="answer-box">Placeholder answer.</div>
             <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
           </div>
         </div>
@@ -475,44 +288,57 @@
       </div>
     </section>
 
-    <!-- GENERAL QUIRKS -->
-    <section class="category" id="quirks">
+    <!-- USING THE PLATFORM -->
+    <section class="category" id="using">
       <div class="category-header">
         <div class="category-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h2>General Quirks</h2>
+        <h2>Using the Platform</h2>
       </div>
       <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left">
-              <span class="issue-badge badge-open">Open</span>
-              <span class="accordion-title">Placeholder - General quirk title goes here</span>
+              <span class="entry-badge badge-tip">Tip</span>
+              <span class="accordion-title">Placeholder - Platform tip or shortcut</span>
             </div>
             <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="accordion-body">
-            <p>Placeholder description of a general quirk or unexpected behavior. Replace with real details from the community.</p>
-            <div class="workaround-label">Workaround</div>
-            <div class="workaround">Placeholder workaround. Replace with actual steps.</div>
-            <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
+            <p>Placeholder - replace with a real tip from the community.</p>
+            <div class="answer-label">The Tip</div>
+            <div class="answer-box">Placeholder tip content.</div>
+            <div class="reported-by">Shared by the Empower &amp; Elevate community</div>
           </div>
         </div>
+
+      </div>
+    </section>
+
+    <!-- KNOWN ISSUES -->
+    <section class="category" id="issues">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <h2>Known Issues</h2>
+      </div>
+      <div class="accordion">
 
         <div class="accordion-item">
           <button class="accordion-trigger" onclick="toggleAccordion(this)">
             <div class="accordion-trigger-left">
-              <span class="issue-badge badge-intermittent">Intermittent</span>
-              <span class="accordion-title">Placeholder - Intermittent quirk title goes here</span>
+              <span class="entry-badge badge-issue">Issue</span>
+              <span class="accordion-title">Placeholder - Known bug or issue title</span>
             </div>
             <svg class="accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="accordion-body">
-            <p>Placeholder description of an intermittent quirk. Replace with real details.</p>
-            <div class="workaround-label">Workaround</div>
-            <div class="workaround">Placeholder workaround steps. Replace with actual steps.</div>
+            <p>Placeholder - replace with real issue description and workaround when available.</p>
+            <div class="answer-label">Workaround</div>
+            <div class="answer-box">Placeholder workaround steps.</div>
             <div class="reported-by">Reported by the Empower &amp; Elevate community</div>
           </div>
         </div>
@@ -520,20 +346,18 @@
       </div>
     </section>
 
-    <!-- SUGGEST BOX -->
     <div class="suggest-box">
       <div class="suggest-box-icon">
         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </div>
       <div>
-        <h3>Found an issue we haven't listed?</h3>
-        <p>This page is only as good as what the community shares. If you've run into something in EOS Academy that isn't here, <a href="contact.html">send it to Kim</a> and we'll get it added.</p>
+        <h3>Have something to add?</h3>
+        <p>This guide grows with the community. If you have a question, a tip worth sharing, or a bug worth documenting, <a href="contact.html">send it to Kim</a> and we'll get it added.</p>
       </div>
     </div>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <div class="footer-logo">Empower &amp; Elevate</div>
