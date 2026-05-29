@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EOS Glossary | Empower &amp; Elevate</title>
+  <meta name="description" content="A practical glossary of EOS terms for executive assistants supporting EOS Implementers — what every term means and why it matters for your work." />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    ul { list-style: none; }
+
+    :root {
+      --ivory:          #FAF7F2;
+      --ivory-dark:     #F0EBE1;
+      --tan:            #D4C5B0;
+      --charcoal:       #2C2C2C;
+      --charcoal-mid:   #555555;
+      --charcoal-light: #888888;
+      --teal:           #1A7A7A;
+      --teal-light:     #228B8B;
+      --teal-pale:      #E0F0F0;
+      --teal-dark:      #0F6E56;
+      --white:          #FFFFFF;
+      --font-display:   'Playfair Display', Georgia, serif;
+      --font-body:      'DM Sans', system-ui, sans-serif;
+      --radius-sm: 2px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ivory); border-bottom: 1px solid var(--tan);
+      padding: 0 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; gap: 1px; }
+    .nav-logo-top { font-family: var(--font-display); font-weight: 600; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--charcoal); }
+    .nav-logo-bottom { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 22px; color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 2.25rem; }
+    .nav-links a { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+    .nav-links .nav-cta { background: var(--teal); color: var(--ivory); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; }
+    .nav-links .nav-cta:hover { background: var(--teal-light); color: var(--ivory); }
+
+    /* ── DROPDOWN ── */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown-toggle { font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); background: none; border: none; cursor: pointer; font-family: var(--font-body); display: flex; align-items: center; gap: 4px; padding: 0; transition: color 0.2s; }
+    .nav-dropdown-toggle:hover { color: var(--teal); }
+    .nav-dropdown-toggle svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.2s; }
+    .nav-dropdown:hover .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu { display: none; position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); background: var(--white); border: 0.5px solid var(--tan); border-radius: var(--radius-lg); box-shadow: 0 8px 24px rgba(0,0,0,0.08); min-width: 200px; padding: 0.5rem 0; z-index: 200; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu::before { content: ''; position: absolute; top: -12px; left: 0; right: 0; height: 12px; }
+    .nav-dropdown-menu a { display: block; padding: 0.55rem 1.25rem; font-size: 12px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal); transition: background 0.15s, color 0.15s; white-space: nowrap; }
+    .nav-dropdown-menu a:hover { background: var(--teal-pale); color: var(--teal); }
+    .nav-dropdown-menu a.active { color: var(--teal); }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-toggle span { display: block; width: 24px; height: 1.5px; background: var(--charcoal); }
+    .mobile-menu { display: none; flex-direction: column; background: var(--ivory); border-bottom: 1px solid var(--tan); padding: 1.5rem 2.5rem; gap: 1.25rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--charcoal); }
+    .mobile-menu a:hover { color: var(--teal); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--teal); padding: 4rem 2.5rem 3.5rem; }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; }
+    .page-eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; font-weight: 400; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(32px, 4vw, 44px); font-weight: 400; color: var(--ivory); line-height: 1.2; margin-bottom: 0.85rem; }
+    .page-header h1 em { font-style: italic; color: var(--tan); }
+    .page-header-sub { font-size: 14px; font-weight: 300; color: rgba(250,247,242,0.72); line-height: 1.8; max-width: 520px; }
+    .accent-bar { height: 4px; background: var(--tan); }
+
+    /* ── ALPHA NAV ── */
+    .alpha-nav { background: var(--white); border-bottom: 1px solid var(--tan); padding: 0.85rem 2.5rem; overflow-x: auto; }
+    .alpha-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 0.25rem; flex-wrap: wrap; }
+    .alpha-nav a {
+      display: inline-block;
+      font-size: 13px; font-weight: 500;
+      color: var(--charcoal-light);
+      width: 32px; height: 32px;
+      line-height: 32px; text-align: center;
+      border-radius: var(--radius-md);
+      transition: background 0.15s, color 0.15s;
+    }
+    .alpha-nav a:hover { background: var(--teal-pale); color: var(--teal); }
+    .alpha-nav a.has-terms { color: var(--teal); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 4rem 2.5rem; }
+
+    /* ── CALLOUT ── */
+    .callout { background: var(--teal-pale); border-left: 3px solid var(--teal); border-radius: var(--radius-lg); padding: 1.25rem 1.75rem; margin-bottom: 3.5rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .callout-icon { flex-shrink: 0; margin-top: 2px; }
+    .callout-icon svg { width: 18px; height: 18px; stroke: var(--teal); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .callout p { font-size: 13px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.7; }
+    .callout a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── LETTER GROUP ── */
+    .letter-group { margin-bottom: 3rem; }
+    .letter-group:last-child { margin-bottom: 0; }
+
+    .letter-anchor {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--tan);
+    }
+
+    .letter-label {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--teal-pale);
+      line-height: 1;
+      width: 42px;
+      flex-shrink: 0;
+    }
+
+    /* ── TERM CARDS ── */
+    .terms { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .term-card {
+      background: var(--white);
+      border: 0.5px solid var(--tan);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .term-card:hover { border-color: var(--teal); box-shadow: var(--shadow-card); }
+
+    .term-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.3;
+    }
+
+    .term-abbr {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--teal-pale);
+      color: var(--teal-dark);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      margin-top: 0.35rem;
+    }
+
+    .term-body {}
+
+    .term-def {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--charcoal-mid);
+      line-height: 1.75;
+      margin-bottom: 0.6rem;
+    }
+
+    .term-ea-note {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--teal-dark);
+      background: var(--teal-pale);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.85rem;
+      line-height: 1.6;
+    }
+    .term-ea-note strong { font-weight: 600; }
+
+    /* ── SUGGEST BOX ── */
+    .suggest-box { background: var(--teal); border-radius: var(--radius-lg); padding: 2.5rem; margin-top: 4rem; display: flex; gap: 2rem; align-items: flex-start; }
+    .suggest-box-icon { width: 48px; height: 48px; background: rgba(255,255,255,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .suggest-box-icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+    .suggest-box h3 { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; color: var(--ivory); margin-bottom: 0.5rem; }
+    .suggest-box p { font-size: 13px; font-weight: 300; color: rgba(250,247,242,0.75); line-height: 1.8; }
+    .suggest-box a { color: rgba(250,247,242,0.9); text-decoration: underline; text-underline-offset: 2px; }
+    .suggest-box a:hover { color: var(--ivory); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); padding: 2rem 2.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--tan); }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(212,197,176,0.5); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--tan); }
+    .footer-copy { font-size: 11px; color: rgba(212,197,176,0.35); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .page-header { padding: 3rem 1.5rem 2.5rem; }
+      .content { padding: 2.5rem 1.5rem; }
+      .term-card { grid-template-columns: 1fr; gap: 0.5rem; }
+      .suggest-box { flex-direction: column; gap: 1.25rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+    }
+    @media (max-width: 480px) {
+      .nav { padding: 0 1.5rem; }
+      footer { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo" aria-label="Empower and Elevate home">
+      <span class="nav-logo-top">Empower</span>
+      <span class="nav-logo-bottom">&amp; Elevate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="about.html">About</a></li>
+      <li class="nav-dropdown">
+        <button class="nav-dropdown-toggle" style="color:var(--teal)">
+          Vault
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="ea-tools.html">EA Tools</a>
+          <a href="ai-help.html">AI Help</a>
+          <a href="email-templates.html">Email Templates</a>
+          <a href="books.html">Books</a>
+          <a href="media.html">Media</a>
+          <a href="eos-academy.html">EOS Academy Guide</a>
+          <a href="eos-glossary.html" class="active">EOS Glossary</a>
+        </div>
+      </li>
+      <li><a href="workshops.html">Workshops</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html" class="nav-cta">Join a Workshop</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu">
+    <a href="about.html">About</a>
+    <a href="ea-tools.html">EA Tools</a>
+    <a href="ai-help.html">AI Help</a>
+    <a href="email-templates.html">Email Templates</a>
+    <a href="books.html">Books</a>
+    <a href="media.html">Media</a>
+    <a href="eos-academy.html">EOS Academy Guide</a>
+    <a href="eos-glossary.html">EOS Glossary</a>
+    <a href="workshops.html">Workshops</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <p class="page-eyebrow">Resource Vault</p>
+      <h1>EOS <em>Glossary</em></h1>
+      <p class="page-header-sub">The language of EOS - every term explained from an EA's perspective so you always know exactly what you're supporting.</p>
+    </div>
+  </header>
+  <div class="accent-bar"></div>
+
+  <!-- ALPHA NAV -->
+  <nav class="alpha-nav" aria-label="Jump to letter">
+    <div class="alpha-nav-inner">
+      <a href="#A" class="has-terms">A</a>
+      <a href="#C" class="has-terms">C</a>
+      <a href="#E" class="has-terms">E</a>
+      <a href="#G" class="has-terms">G</a>
+      <a href="#I" class="has-terms">I</a>
+      <a href="#L" class="has-terms">L</a>
+      <a href="#M" class="has-terms">M</a>
+      <a href="#P" class="has-terms">P</a>
+      <a href="#Q" class="has-terms">Q</a>
+      <a href="#R" class="has-terms">R</a>
+      <a href="#S" class="has-terms">S</a>
+      <a href="#T" class="has-terms">T</a>
+      <a href="#V" class="has-terms">V</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="callout">
+      <div class="callout-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <p>Definitions are written from an EA's perspective - not just what the term means, but why it matters for the work you do. Something missing or incorrect? <a href="contact.html">Let Kim know.</a></p>
+    </div>
+
+    <!-- A -->
+    <div class="letter-group" id="A">
+      <div class="letter-anchor"><div class="letter-label">A</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Accountability Chart</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A structural tool that defines every seat in the organization, what that seat is responsible for, and who sits in it. It replaces the traditional org chart by focusing on function and accountability rather than hierarchy.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Your implementer will reference this constantly when talking about client organizations. Understanding who owns what in a client company helps you route communications, schedule the right people, and anticipate what support is needed.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Annual Planning</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A structured session held once a year where leadership teams review progress, set the vision for the next year, and establish annual Rocks. Typically runs one to two days offsite.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> One of the biggest logistics events you'll coordinate - venue, travel, prep materials, and follow-up communications. Start planning well in advance.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="letter-group" id="C">
+      <div class="letter-anchor"><div class="letter-label">C</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Core Focus</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A company's reason for being - made up of its Core Values and its Purpose/Cause/Passion. Defines what the organization is and why it exists.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Helps you understand the culture and priorities of the client companies your implementer works with. Useful context when preparing materials or communications.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Core Values</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A small set of fundamental beliefs that define the culture and character of an organization. In EOS, companies are encouraged to identify three to seven core values that guide hiring, decisions, and behavior.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Clients will reference these frequently. Knowing a company's core values helps you understand the tone and priorities behind their communications.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="letter-group" id="E">
+      <div class="letter-anchor"><div class="letter-label">E</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">EOS</div>
+            <div class="term-abbr">Entrepreneurial Operating System</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A complete set of simple concepts and practical tools that help entrepreneurial leadership teams get what they want from their businesses. Built around Six Key Components: Vision, People, Data, Issues, Process, and Traction.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> This is the framework everything else is built on. Understanding EOS at a high level helps you make sense of the tools, terminology, and rhythm your implementer works within every day.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">EOS Implementer</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A trained professional who guides leadership teams through the EOS process. Implementers work with multiple client companies simultaneously, running quarterly and annual sessions and coaching leadership teams between meetings.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> This is who you support. Implementers typically have a high volume of clients, complex scheduling needs, and significant travel - making strong EA support essential to their practice.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">EOS Worldwide</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The organization that trains, certifies, and supports EOS Implementers globally. Provides tools, resources, and community for the implementer network.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> The source of official EOS materials, training events, and certifications. Your implementer will attend EOS Worldwide events throughout the year that you'll likely be coordinating.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- G -->
+    <div class="letter-group" id="G">
+      <div class="letter-anchor"><div class="letter-label">G</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">GWC</div>
+            <div class="term-abbr">Gets it, Wants it, Capacity</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A three-part filter used to evaluate whether someone is right for a particular seat in the organization. Gets it: innately understands the role. Wants it: genuinely desires the responsibilities. Capacity: has the time, energy, and skills to do it.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> You'll hear this in conversations about hiring, performance, and organizational decisions. Understanding GWC helps you follow the context of those discussions.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- I -->
+    <div class="letter-group" id="I">
+      <div class="letter-anchor"><div class="letter-label">I</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Integrator</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The person who runs the day-to-day operations of the business, harmonizes the leadership team, and holds everything together. Often the COO or President. Works in close partnership with the Visionary.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> The Integrator is often the primary point of contact in client organizations. Understanding their role helps you know who to communicate with and what they're responsible for.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Issues List</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A running list of problems, opportunities, and obstacles facing the business. In EOS, issues are surfaced, prioritized, and solved in a structured format during Level 10 Meetings using the IDS process.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Your implementer will reference client Issues Lists when preparing for sessions. You may be asked to compile, format, or distribute these documents.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">IDS</div>
+            <div class="term-abbr">Identify, Discuss, Solve</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The three-step process used in EOS to work through issues. First identify the real issue, then discuss it fully, then solve it with a clear to-do or decision. Keeps meetings productive and focused.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Understanding IDS helps you follow meeting notes and action items that come out of client sessions your implementer facilitates.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- L -->
+    <div class="letter-group" id="L">
+      <div class="letter-anchor"><div class="letter-label">L</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Level 10 Meeting</div>
+            <div class="term-abbr">L10</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A structured weekly meeting format used by EOS leadership teams. Runs 90 minutes and follows a set agenda: segue, scorecard review, rock review, customer/employee headlines, to-do list review, IDS on issues, and conclude. Named for the goal of rating the meeting a 10 out of 10.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> You'll likely be scheduling and tracking L10s across multiple client companies. Understanding the format helps you prepare agendas, send reminders, and follow up on to-dos that come out of them.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- M -->
+    <div class="letter-group" id="M">
+      <div class="letter-anchor"><div class="letter-label">M</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Meeting Pulse</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The regular rhythm of meetings that keeps a leadership team aligned and moving. In EOS, the standard pulse includes a weekly Level 10 Meeting, a Quarterly Session, and an Annual Planning session.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> The meeting pulse is the backbone of your scheduling work. Getting clients locked into this rhythm and keeping it running smoothly is one of the highest-value things you do.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- P -->
+    <div class="letter-group" id="P">
+      <div class="letter-anchor"><div class="letter-label">P</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">People Analyzer</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">An EOS tool used to evaluate team members against the company's Core Values and GWC. Helps leadership teams make objective decisions about who belongs in which seat.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> May come up in materials your implementer prepares for client sessions. Treat it as confidential - it involves assessments of individual employees.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Q -->
+    <div class="letter-group" id="Q">
+      <div class="letter-anchor"><div class="letter-label">Q</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Quarterly Session</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A one-day offsite meeting held every 90 days where the leadership team reviews progress, closes out the previous quarter's Rocks, and sets new Rocks for the next quarter. Facilitated by the EOS Implementer.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> One of the most logistics-intensive events you'll manage. Involves venue coordination, travel, materials prep, and post-session follow-up for multiple clients throughout the year.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Quarterly Pulsing</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The 90-day rhythm at the heart of EOS execution. The idea that most businesses can plan and execute effectively in 90-day sprints, making progress more measurable and teams more accountable.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Your implementer's calendar runs on this rhythm. Understanding it helps you anticipate busy periods and plan around quarterly session schedules across all clients.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- R -->
+    <div class="letter-group" id="R">
+      <div class="letter-anchor"><div class="letter-label">R</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Rocks</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The three to seven most important priorities for the business or an individual to accomplish in the next 90 days. Named after the concept of putting the big rocks in the jar first. Each Rock has a clear owner and a done/not done status.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Rocks drive the agenda of Quarterly Sessions and are tracked in every L10. You'll see them referenced constantly in meeting prep and follow-up materials.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- S -->
+    <div class="letter-group" id="S">
+      <div class="letter-anchor"><div class="letter-label">S</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Same Page Meeting</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A regular check-in between the Visionary and Integrator to ensure they are aligned on direction, priorities, and decisions. Typically held weekly or biweekly.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> You may be scheduling these recurring meetings between a client's Visionary and Integrator. They are high-priority and should be protected on the calendar.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Scorecard</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A weekly snapshot of five to fifteen high-level numbers that give leadership an at-a-glance view of business health. Each number has a weekly goal and is tracked as on or off track.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Scorecards are reviewed at the start of every L10. You may be asked to compile or format scorecard data for your implementer's clients.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- T -->
+    <div class="letter-group" id="T">
+      <div class="letter-anchor"><div class="letter-label">T</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Traction</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">The discipline and accountability component of EOS - getting things done consistently and moving the business forward. Also the title of the foundational EOS book by Gino Wickman.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> When your implementer talks about a client "gaining traction," they mean the team is executing consistently and the system is working. The book is worth reading for context on everything EOS.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">To-Do List</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">In EOS, a To-Do is a seven-day action item created during an L10 Meeting. Unlike Rocks, To-Dos are short-term tasks with a one-week deadline. They are reviewed at the start of the next L10.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> To-Dos often come out of sessions your implementer facilitates. You may be responsible for tracking or following up on action items assigned to your implementer.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- V -->
+    <div class="letter-group" id="V">
+      <div class="letter-anchor"><div class="letter-label">V</div></div>
+      <div class="terms">
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Vision/Traction Organizer</div>
+            <div class="term-abbr">V/TO</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A two-page document that captures the entire vision and plan for a business. Includes Core Values, Core Focus, 10-Year Target, Marketing Strategy, 3-Year Picture, 1-Year Plan, Rocks, and Issues. The single most important document in EOS.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Every client has one. You may be asked to format, update, or distribute V/TOs. Treat them as confidential strategic documents.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">Visionary</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">Typically the founder or CEO - the big-picture thinker who drives the company's vision, culture, and key relationships. Often has many ideas and works best when paired with a strong Integrator to execute.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Visionaries tend to move fast, think big, and need strong organizational support around them. Understanding this role helps you anticipate the pace and style of client leadership.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">3-Year Picture</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A vivid description of what the business will look like three years from now - including revenue, profit, number of employees, and key measurables. Part of the V/TO and reviewed during Annual Planning.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Gives you context on where a client company is headed, which helps when preparing materials or communications that reference the company's direction.</div>
+          </div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-left">
+            <div class="term-name">10-Year Target</div>
+          </div>
+          <div class="term-body">
+            <div class="term-def">A single, clear, long-range goal for the business - a BHAG (Big Hairy Audacious Goal) that inspires the team and provides long-term direction. Part of the V/TO.</div>
+            <div class="term-ea-note"><strong>EA relevance:</strong> Useful context for understanding a client's ambitions and the significance of the work your implementer is doing with them.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SUGGEST BOX -->
+    <div class="suggest-box">
+      <div class="suggest-box-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h3>Missing a term?</h3>
+        <p>EOS has a rich vocabulary and this glossary grows over time. If there's a term you keep hearing that isn't here, <a href="contact.html">send it to Kim</a> and we'll get it added.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Empower &amp; Elevate</div>
+      <ul class="footer-links">
+        <li><a href="ea-tools.html">Vault</a></li>
+        <li><a href="workshops.html">Workshops</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2026 Kim Craig - Empower &amp; Elevate</div>
+    </div>
+  </footer>
+
+</body>
+</html>
