@@ -267,6 +267,7 @@
       <a href="#creative">Creative</a>
       <a href="#meetings">Meetings</a>
       <a href="#business">Business</a>
+      <a href="#prompts">Prompt Library</a>
     </div>
   </nav>
 
@@ -467,6 +468,154 @@
 
       </div>
     </section>
+<!-- ============================================================
+     PROMPT LIBRARY SECTION
+     Add this section after the last existing category section
+     and before the closing </main> tag in ai-help.html
+     Also add <a href="#prompts">Prompt Library</a> to the jump nav
+     ============================================================ -->
+ 
+    <section class="category" id="prompts">
+      <div class="category-header">
+        <div class="category-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h2>Prompt Library</h2>
+      </div>
+ 
+      <p style="font-size:14px;font-weight:300;color:var(--charcoal-mid);line-height:1.8;max-width:640px;margin-bottom:2rem;">Ready-to-use prompts for the situations EAs run into every day. Copy any prompt, paste it into your AI tool of choice, and customize the bracketed parts for your situation.</p>
+ 
+      <!-- EMAIL & COMMUNICATION -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Email &amp; Communication</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Draft a professional follow-up email</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Draft a professional follow-up email on behalf of [executive name]. We met with [contact name] at [company] on [date] to discuss [topic]. The tone should be warm but concise. Key next steps to reference: [list next steps].</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Adjust the tone of a draft email</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Rewrite the following email to sound [more formal / warmer / more direct / more empathetic]. Keep the core message intact but adjust the tone to match a [professional / friendly / executive] voice. Here is the original email: [paste email]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Write an introduction email between two contacts</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a double opt-in introduction email connecting [Person A name, title, company] with [Person B name, title, company]. The reason for the introduction is [reason]. The tone should be professional and warm. Keep it brief - two short paragraphs maximum.</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Decline a request politely on behalf of an executive</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a polite decline email on behalf of [executive name] in response to [request type - speaking engagement / meeting / partnership / etc.]. The reason for declining is [reason, or "we are unable to share the specific reason"]. Keep the tone respectful and leave the door open for future connection if appropriate.</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- MEETING PREP & RECAPS -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Meeting Prep &amp; Recaps</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Summarize meeting notes into action items</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Summarize the following meeting notes into a clean recap. Include: a 2-3 sentence summary of what was discussed, a bulleted list of decisions made, and a list of action items with the owner and due date for each. Here are the notes: [paste notes]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Build a meeting agenda</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Create a structured agenda for a [length] meeting with [attendees / team name]. The goals of this meeting are [goals]. Topics to cover include: [list topics]. Please include time allocations for each item and a brief description of what needs to be accomplished in each section.</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Write a post-meeting follow-up with action items</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a post-meeting follow-up email to send to all attendees of [meeting name] held on [date]. Summarize the key discussion points, list the agreed-upon action items with owners and deadlines, and note the date of the next meeting. Tone should be professional and clear. Action items: [list items]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- SCHEDULING & TRAVEL -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Scheduling &amp; Travel</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Draft a scheduling conflict resolution email</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write an email on behalf of [executive name] to [recipient] explaining that we need to reschedule our [meeting type] originally set for [date/time]. The reason is [reason, or "a conflict has come up"]. Propose these alternative times: [list times]. Keep the tone apologetic but professional.</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Build a travel itinerary</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Create a clean, easy-to-read travel itinerary for [traveler name] traveling from [origin] to [destination] on [dates]. Include: flight details, hotel check-in/out, meeting schedule, ground transportation, and any important notes. Format it chronologically by day. Here are the raw details: [paste details]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- RESEARCH & REPORTING -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">Research &amp; Reporting</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Summarize a long document or article</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Summarize the following document in 3-5 bullet points. Focus on the most important takeaways and any action items or decisions required. Keep the language clear and concise. Here is the document: [paste content]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Write a weekly end-of-day or end-of-week report</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a concise end-of-[day/week] report for [executive name] based on the following notes. Format it with three sections: Completed (what was finished), In Progress (what is still open), and Coming Up (key priorities for tomorrow/next week). Notes: [paste notes]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- EOS-SPECIFIC -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;">EOS-Specific</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Write a Quarterly Session prep email to a client</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a prep email to send to the leadership team at [company name] ahead of their Quarterly Session on [date] at [location]. Include: a reminder of the date, time, and location; what they should come prepared with (Rock updates, Scorecard review, Issues to discuss); and an encouraging, energizing tone. The session will run approximately [length].</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Summarize a Quarterly Session into a recap email</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a post-Quarterly Session recap email to send to the leadership team at [company]. Include: a brief summary of the session, the Rocks set for this quarter with owners, any major decisions made, and key to-dos with deadlines. Tone should be energizing and forward-looking. Session notes: [paste notes]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Draft a Rock status update</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a clear, concise Rock status update for the following Rock. Status should be either On Track or Off Track. Include what has been completed so far, what is still remaining, and any obstacles or support needed. Rock title: [Rock title]. Owner: [name]. Due date: [date]. Progress notes: [paste notes]</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+          <div style="background:var(--white);border:0.5px solid var(--tan);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--tan)'">
+            <div style="font-size:12px;font-weight:500;color:var(--charcoal);margin-bottom:0.5rem;">Write a new client onboarding email</div>
+            <code style="display:block;background:var(--ivory);border-radius:var(--radius-md);padding:0.85rem 1rem;font-size:12px;color:var(--charcoal-mid);line-height:1.7;font-family:monospace;white-space:pre-wrap;">Write a warm welcome and onboarding email from [implementer name] to the leadership team at [company name] who has just signed on as a new EOS client. Include: a welcome message, what they can expect in the first 90 days, any immediate next steps or prep work needed, and contact information for questions. Tone should be confident, warm, and reassuring.</code>
+            <button onclick="copyPrompt(this)" style="margin-top:0.75rem;font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--teal);background:var(--teal-pale);border:none;border-radius:var(--radius-sm);padding:4px 12px;cursor:pointer;">Copy</button>
+          </div>
+ 
+        </div>
+      </div>
+ 
+    </section>
 
   </main>
 
@@ -487,6 +636,24 @@
       <div class="footer-copy">&copy; 2026 Kim Craig &mdash; Empower &amp; Elevate</div>
     </div>
   </footer>
+
+  <!-- ADD THIS SCRIPT before </body> if not already present -->
+    <script>
+    function copyPrompt(btn) {
+      const code = btn.previousElementSibling.textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.style.background = 'var(--teal)';
+        btn.style.color = 'var(--ivory)';
+        setTimeout(() => {
+          btn.textContent = original;
+          btn.style.background = 'var(--teal-pale)';
+          btn.style.color = 'var(--teal)';
+        }, 2000);
+      });
+    }
+    </script>
 
 </body>
 </html>
