@@ -371,6 +371,19 @@
       .nav { padding: 0 1.5rem; }
       footer { padding: 2rem 1.5rem; }
     }
+
+    @keyframes holiday-glow {
+  0%   { box-shadow: 0 0 6px 2px #C0392B, 0 0 12px 4px #C0392B; border-color: #C0392B; }
+  25%  { box-shadow: 0 0 6px 2px #27AE60, 0 0 12px 4px #27AE60; border-color: #27AE60; }
+  50%  { box-shadow: 0 0 6px 2px #C0392B, 0 0 12px 4px #C0392B; border-color: #C0392B; }
+  75%  { box-shadow: 0 0 6px 2px #F1C40F, 0 0 12px 4px #F1C40F; border-color: #F1C40F; }
+  100% { box-shadow: 0 0 6px 2px #C0392B, 0 0 12px 4px #C0392B; border-color: #C0392B; }
+}
+
+.date-card.holiday {
+  animation: holiday-glow 3s ease-in-out infinite;
+  border-width: 1.5px;
+}
   </style>
 </head>
 <body>
@@ -495,7 +508,7 @@
           </div>
         </div>
 
-        <div class="date-card">
+        <div class="date-card holiday">
           <div class="date-block">
             <div class="date-month">Dec</div>
             <div class="date-day">9</div>
