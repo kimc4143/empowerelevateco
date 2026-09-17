@@ -137,6 +137,11 @@
     .section-title { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); font-weight: 400; color: var(--charcoal); margin-bottom: 0.75rem; line-height: 1.25; }
     .section-sub { font-size: 14px; font-weight: 300; color: var(--charcoal-mid); line-height: 1.8; max-width: 580px; margin-bottom: 2.5rem; }
 
+    .jump-nav { background: var(--white); border-bottom: 1px solid var(--tan); padding: 0 2.5rem; overflow-x: auto; }
+    .jump-nav-inner { max-width: 1100px; margin: 0 auto; display: flex; }
+    .jump-nav a { display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 0.07em; text-transform: uppercase; color: var(--charcoal-light); padding: 1rem 1.25rem; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.2s, border-color 0.2s; }
+    .jump-nav a:hover { color: var(--teal); border-bottom-color: var(--teal); }
+
     .expect-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
